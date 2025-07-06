@@ -1,0 +1,23 @@
+// Interface cho một vị trí
+export interface ViTri {
+  id: number;
+  tenViTri: string;
+  tinhThanh: string;
+  quocGia: string;
+  hinhAnh: string;
+}
+
+// Interface cho dữ liệu trả về chung từ API
+export interface ApiResponse<T> {
+  statusCode: number;
+  message: string;
+  content: T;
+}
+
+// Interface cho dữ liệu phân trang
+export interface PaginatedViTri {
+  pageIndex: number;
+  pageSize: number;
+  totalRow: number;
+  data: ViTri[];
+}

@@ -1,0 +1,60 @@
+{
+  "homepage": {
+    "Locations": {
+      "title": "Anywhere",
+      "description1": "Entire homes",
+      "description2": "Unique stays",
+      "description3": "Farms and nature",
+      "description4": "Pet-friendly"
+    },
+    "SelectForm": {
+      "location": "Location",
+      "find_location": "Search location",
+      "choose_location": "Choose location",
+      "none": "None",
+      "time": "Time",
+      "Add_guest": "Add guest",
+      "guest": "Guest"
+    },
+    "Footer": {
+      "row1": {
+        "emailUs": "Email Us",
+        "customerServices": "Customer Service",
+        "Partner": "Partner"
+      },
+      "row2": {
+        "title": "ABOUT",
+        "how_airbnb_works": "How Airbnb Works",
+        "newsroom": "Newsroom",
+        "investors": "Investors",
+        "airbnb_plus": "Airbnb Plus",
+        "airbnb_luxe": "Airbnb Luxe",
+        "hotel_tonight": "HotelTonight",
+        "airbnb_for_work": "Airbnb for Work",
+        "thanks_to_hosts": "Thanks to Hosts, Anything is Possible",
+        "careers": "Careers"
+      },
+      "row3": {
+        "title": "COMMUNITY",
+        "diversity_belonging": "Diversity and Belonging",
+        "accessibility_features": "Accessibility Features",
+        "airbnb_affiliates": "Airbnb Affiliates",
+        "frontline_stays": "Frontline Stays",
+        "guest_referrals": "Guest Referrals",
+        "airbnb_org": "Airbnb.org"
+      },
+      "row4": {
+        "title": "HOSTING",
+        "renting_home": "Renting out your home",
+        "host_online_experience": "Host an Online Experience",
+        "host_experience": "Host an Experience",
+        "responsible_hosting": "Responsible Hosting",
+        "resource_center": "Resource Center",
+        "community_center": "Community Center",
+        "sub": "Subscribe Newsletter",
+        "subscribe": "Subscribe",
+        "flow": "Follow us"
+      }
+    }
+  }
+}

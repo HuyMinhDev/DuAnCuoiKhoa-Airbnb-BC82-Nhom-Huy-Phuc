@@ -1,0 +1,60 @@
+{
+  "homepage": {
+    "Locations": {
+      "title": "Ở bất cứ đâu",
+      "description1": "Toàn bộ nhà",
+      "description2": "Chỗ ở độc đáo",
+      "description3": "Trang trại và thiên nhiên",
+      "description4": "Cho phép mang theo thú cưng"
+    },
+    "SelectForm": {
+      "location": "Địa điểm",
+      "find_location": "Tìm kiếm địa điểm",
+      "choose_location": "Chọn địa điểm",
+      "none": "Không",
+      "time": "Thời gian",
+      "Add_guest": "Thêm khách",
+      "guest": "Khách"
+    },
+    "Footer": {
+      "row1": {
+        "emailUs": "Gửi Email Cho Chúng Tôi",
+        "customerServices": "Dịch Vụ Khách Hàng",
+        "Partner": "Đối Tác"
+      },
+      "row2": {
+        "title": "Giới Thiệu",
+        "how_airbnb_works": "Phương Thức Hoạt Động Của Airbnb",
+        "newsroom": "Trang Tin Tức",
+        "investors": "Nhà Đầu Tư",
+        "airbnb_plus": "Airbnb Plus",
+        "airbnb_luxe": "Airbnb Luxe",
+        "hotel_tonight": "HotelTonight",
+        "airbnb_for_work": "Airbnb For Work",
+        "thanks_to_hosts": "Nhờ Có Host, Mọi Điều Đều Có Thể",
+        "careers": "Cơ Hội Nghề Nghiệp"
+      },
+      "row3": {
+        "title": "Cộng Đồng",
+        "diversity_belonging": "Sự Đa Dạng Và Cảm Giác Thân Thuộc",
+        "accessibility_features": "Tiện Nghi Phù Hợp Cho Người Khuyết Tật",
+        "airbnb_affiliates": "Đối Tác Liên Kết Airbnb",
+        "frontline_stays": "Chỗ Ở Cho Tuyến Đầu",
+        "guest_referrals": "Lượt Giới Thiệu Của Khách",
+        "airbnb_org": "Airbnb.org"
+      },
+      "row4": {
+        "title": "Đón Tiếp Khách",
+        "renting_home": "Cho Thuê Nhà",
+        "host_online_experience": "Tổ Chức Trải Nghiệm Trực Tuyến",
+        "host_experience": "Tổ Chức Trải Nghiệm",
+        "responsible_hosting": "Đón Tiếp Khách Có Trách Nhiệm",
+        "resource_center": "Trung Tâm Tài Nguyên",
+        "community_center": "Trung Tâm Cộng Đồng",
+        "sub": "Đăng Ký Nhận Bản Tin",
+        "subscribe": "Đăng Ký",
+        "flow": "Theo Dõi"
+      }
+    }
+  }
+}

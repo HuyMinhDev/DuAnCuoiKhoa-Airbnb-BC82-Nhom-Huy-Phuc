@@ -1,0 +1,142 @@
+.text-primary {
+  color: rgb(254, 107, 110);
+}
+.text-primary:hover {
+  color: rgb(254, 107, 110);
+}
+
+.text-secondary {
+  color: rgb(158, 62, 78);
+}
+.text-secondary:hover {
+  color: rgb(158, 62, 78);
+}
+
+.bg-primary {
+  background-color: rgb(254, 107, 110);
+}
+
+.bg-secondary {
+  background-color: rgb(158, 62, 78);
+}
+
+.button-primary {
+  padding: 8px 12px;
+  background-color: rgb(254, 107, 110);
+  border: solid;
+  border-width: 2px;
+  border-radius: 8px;
+  color: white;
+  transition: 0.3s;
+}
+.button-primary:hover {
+  opacity: 80%;
+}
+
+.button-outline-primary {
+  padding: 4px 8px;
+  background-color: white;
+  border: solid;
+  border-color: rgb(254, 107, 110);
+  border-width: 2px;
+  border-radius: 8px;
+  color: rgb(254, 107, 110);
+  transition: 0.3s;
+}
+.button-outline-primary:hover {
+  background-color: rgb(254, 107, 110);
+  color: white;
+  border-color: none;
+}
+
+.button-secondary {
+  padding: 4px 8px;
+  background-color: rgb(158, 62, 78);
+  border: solid;
+  border-width: 2px;
+  border-radius: 8px;
+  color: white;
+  transition: 0.3s;
+}
+.button-secondary:hover {
+  opacity: 80%;
+}
+
+.ant-card {
+  display: flex !important;
+  align-items: center !important;
+  flex-direction: row !important;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+/* đè css của react-date-range */
+.rdrMonth {
+  width: 100% !important;
+}
+/* Shadow cho chế độ sáng */
+.dark .ant-card {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+/* Hover effect */
+.dark .ant-card:hover {
+  box-shadow: 0 4px 12px rgb(254, 107, 110);
+}
+.dark .card-item:hover {
+  box-shadow: 0 4px 12px rgb(254, 107, 110);
+}
+.bg-footer {
+  background: #141314;
+  .bg-footer-top {
+    input {
+      background: #000;
+      color: white;
+    }
+    button {
+      background: rgb(254, 107, 110);
+      cursor: pointer;
+    }
+    .list-item {
+      li {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        .list-item-icon {
+          color: rgb(254, 107, 110);
+          font-weight: bold;
+        }
+        a {
+          transition: color 0.4s ease;
+
+          &:hover {
+            color: rgb(254, 107, 110);
+          }
+        }
+      }
+    }
+    .subscribe-item {
+      input {
+        outline: rgb(254, 107, 110);
+      }
+    }
+  }
+  .bg-footer-end {
+    border-top: 1px solid #262525;
+    p {
+      span:last-child {
+        color: rgb(254, 107, 110);
+      }
+    }
+    .bg-footer-item {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
