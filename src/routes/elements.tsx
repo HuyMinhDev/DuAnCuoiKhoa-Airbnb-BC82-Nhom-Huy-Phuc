@@ -7,6 +7,8 @@ import { useRoutes } from "react-router-dom";
 import { PATH } from "./path";
 import HomeLayout from "../page/home-layouts/HomeLayout";
 import Homepage from "../page/home-layouts/Homepage";
+import RoomsVitri from "../page/RoomsPage/RoomsVitri";
+import RoomsPage from "../page/RoomsPage/RoomsPage";
 
 export default function useRouterElements() {
   const elements = useRoutes([
@@ -18,22 +20,22 @@ export default function useRouterElements() {
         </HomeLayout>
       ),
     },
-    // {
-    //   path: `${PATH.MOVIE_DETAILS}/:id`,
-    //   element: (
-    //     <HomeLayout>
-    //       <DetailPage />
-    //     </HomeLayout>
-    //   ),
-    // },
-    // {
-    //   path: `${PATH.TICKET_ROOM}/:id`,
-    //   element: (
-    //     <HomeLayout>
-    //       <TicketRoom />
-    //     </HomeLayout>
-    //   ),
-    // },
+    {
+      path: `${PATH.ROOM}/:id`,
+      element: (
+        <HomeLayout>
+          <RoomsVitri />
+        </HomeLayout>
+      ),
+    },
+    {
+      path: `${PATH.ROOM}`,
+      element: (
+        <HomeLayout>
+          <RoomsPage />
+        </HomeLayout>
+      ),
+    },
     // {
     //   path: PATH.LOGIN,
     //   element: (

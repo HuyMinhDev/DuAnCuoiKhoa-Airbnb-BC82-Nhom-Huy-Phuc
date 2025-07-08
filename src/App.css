@@ -84,10 +84,9 @@
   transition: box-shadow 0.3s ease;
 }
 /* Hover effect */
-.dark .ant-card:hover {
-  box-shadow: 0 4px 12px rgb(254, 107, 110);
-}
-.dark .card-item:hover {
+.dark .ant-card:hover,
+.dark .card-item:hover,
+.dark .bg-shadow:hover {
   box-shadow: 0 4px 12px rgb(254, 107, 110);
 }
 .bg-footer {

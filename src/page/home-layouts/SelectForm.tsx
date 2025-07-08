@@ -25,8 +25,14 @@ interface LocationItem {
   hinhAnh: string;
   tinhThanh: string;
 }
-
-const SelectForm: React.FC = () => {
+interface SelectFormProps {
+  isRoompage: boolean;
+  handleSelectRoomByLocation: (id: number | null) => void;
+}
+const SelectForm: React.FC<SelectFormProps> = ({
+  isRoompage,
+  handleSelectRoomByLocation,
+}) => {
   const { t } = useTranslation();
   const { i18n } = useTranslation();
   const [selectedLocationId, setSelectedLocationId] = useState<number | null>(
@@ -109,6 +115,10 @@ const SelectForm: React.FC = () => {
   const handleSelectLocation = (id: number | null) => {
     setSelectedLocationId(id);
     setOpenLocation(false);
+    if (isRoompage) {
+      handleSelectRoomByLocation(id); // Lọc danh sách phòng theo địa điểm
+    }
+
     console.log("Đã chọn địa điểm:", id);
   };
 
@@ -227,9 +237,9 @@ const SelectForm: React.FC = () => {
               {t("homepage.SelectForm.time")}
             </p>
             {/* <span className="text-gray-800 text-base sm:text-lg">
-              {dayjs(dateRange[0].startDate).format("DD/MM/YYYY")} -{" "}
-              {dayjs(dateRange[0].endDate).format("DD/MM/YYYY")}
-            </span> */}
+                {dayjs(dateRange[0].startDate).format("DD/MM/YYYY")} -{" "}
+                {dayjs(dateRange[0].endDate).format("DD/MM/YYYY")}
+              </span> */}
             <span className="text-gray-800 text-base sm:text-lg">
               {dayjs(dateRange[0].startDate).format("DD MMMM YYYY")} -{" "}
               {dayjs(dateRange[0].endDate).format("DD MMMM YYYY")}
