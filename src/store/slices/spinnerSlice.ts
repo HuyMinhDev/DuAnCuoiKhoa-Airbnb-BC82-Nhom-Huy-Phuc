@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-interface SpinnerState {
-  isLoading: boolean;
-}
+import type { SpinnerState } from "../../types";
 
 const initialState: SpinnerState = {
   isLoading: false,

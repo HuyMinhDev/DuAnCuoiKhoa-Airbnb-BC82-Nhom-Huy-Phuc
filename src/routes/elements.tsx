@@ -1,12 +1,13 @@
-import React from "react";
 import { useRoutes } from "react-router-dom";
-// import Homepage from "@/pages/home";
-// import Login from "@/pages/auth/login";
-// import Register from "@/pages/auth/register";
-
 import { PATH } from "./path";
 import HomeLayout from "../page/home-layouts/HomeLayout";
 import Homepage from "../page/home-layouts/Homepage";
+import RoomsVitri from "../page/RoomsPage/RoomsVitri";
+import RoomsPage from "../page/RoomsPage/RoomsPage";
+import RoomDetailPage from "../page/RoomsDetailPage/RoomDetailPage";
+import InfoUserPage from "../components/layouts/InfoUserPage/InfoUserPage";
+
+import OAuthCallback from "../page/TempLoginPage/OAuthCallback";
 
 export default function useRouterElements() {
   const elements = useRoutes([
@@ -18,62 +19,47 @@ export default function useRouterElements() {
         </HomeLayout>
       ),
     },
-    // {
-    //   path: `${PATH.MOVIE_DETAILS}/:id`,
-    //   element: (
-    //     <HomeLayout>
-    //       <DetailPage />
-    //     </HomeLayout>
-    //   ),
-    // },
-    // {
-    //   path: `${PATH.TICKET_ROOM}/:id`,
-    //   element: (
-    //     <HomeLayout>
-    //       <TicketRoom />
-    //     </HomeLayout>
-    //   ),
-    // },
-    // {
-    //   path: PATH.LOGIN,
-    //   element: (
-    //     <AuthLayout>
-    //       <Login />
-    //     </AuthLayout>
-    //   ),
-    // },
-    // {
-    //   path: PATH.REGISTER,
-    //   element: (
-    //     <AuthLayout>
-    //       <Register />
-    //     </AuthLayout>
-    //   ),
-    // },
-    // {
-    //   path: PATH.DASHBOARD,
-    //   element: (
-    //     <DashboardLayout>
-    //       <DashboardAdmin />
-    //     </DashboardLayout>
-    //   ),
-    // },
-    // {
-    //   path: PATH.USER_MANAGEMENT,
-    //   element: (
-    //     <DashboardLayout>
-    //       <UserManagement />
-    //     </DashboardLayout>
-    //   ),
-    // },
-    // {
-    //   path: PATH.MOVIE_MANAGEMENT,
-    //   element: (
-    //     <DashboardLayout>
-    //       <MovieManagement />
-    //     </DashboardLayout>
-    //   ),
-    // },
+    {
+      path: `${PATH.ROOM}/:id`,
+      element: (
+        <HomeLayout>
+          <RoomsVitri />
+        </HomeLayout>
+      ),
+    },
+    {
+      path: `${PATH.ROOM_DETAIL}/:id`,
+      element: (
+        <HomeLayout>
+          <RoomDetailPage />
+        </HomeLayout>
+      ),
+    },
+    {
+      path: `${PATH.ROOM}`,
+      element: (
+        <HomeLayout>
+          <RoomsPage />
+        </HomeLayout>
+      ),
+    },
+    {
+      path: `${PATH.LOGIN_GOOGLE}`,
+      element: (
+        <HomeLayout>
+          <OAuthCallback />
+        </HomeLayout>
+      ),
+    },
+    {
+      path: `${PATH.PROFILE}`,
+      element: (
+        <HomeLayout>
+          <InfoUserPage />
+        </HomeLayout>
+      ),
+    },
+
     { path: PATH.NOT_FOUND, element: <div>404 Not Found</div> },
   ]);
   return elements;

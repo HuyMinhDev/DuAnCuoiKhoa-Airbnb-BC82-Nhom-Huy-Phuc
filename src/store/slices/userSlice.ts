@@ -1,23 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-// Định nghĩa kiểu dữ liệu cho user (bạn có thể mở rộng theo backend)
-interface User {
-  user: {
-    id: number;
-    name: string;
-    email: string;
-    role: string;
-    avatar?: string;
-  };
-  token: string;
-}
-
-// Định nghĩa kiểu cho slice
-interface UserState {
-  loginData: User | null;
-  isModalOpen: boolean;
-  modalContent: "login" | "register"; // Chỉ cho phép hai giá trị
-}
+import type { UserSlice, UserState } from "../../types/User";
 
 // Lấy dữ liệu user từ localStorage nếu có
 const loginJson = localStorage.getItem("USER_LOGIN");
@@ -32,9 +15,10 @@ const userSlice = createSlice({
   name: "userSlice",
   initialState,
   reducers: {
-    setLoginData: (state, action: PayloadAction<User | null>) => {
+    setLoginData: (state, action: PayloadAction<UserSlice | null>) => {
       state.loginData = action.payload;
     },
+
     setIsModalOpen: (state, action: PayloadAction<boolean>) => {
       state.isModalOpen = action.payload;
     },
