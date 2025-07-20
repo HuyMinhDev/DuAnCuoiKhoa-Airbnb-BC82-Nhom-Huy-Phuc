@@ -18,7 +18,7 @@ const TempFormLogin: React.FC<TempFormLoginProps> = ({ onLoginSuccess }) => {
     account.createOAuth2Session(
       OAuthProvider.Google,
       "https://du-an-cuoi-khoa-airbnb-bc-82-nhom-h.vercel.app",
-      "https://du-an-cuoi-khoa-airbnb-bc-82-nhom-h.vercel.app/login"
+      "https://du-an-cuoi-khoa-airbnb-bc-82-nhom-h.vercel.app/fail"
     );
   };
   const { message } = AntdApp.useApp();
