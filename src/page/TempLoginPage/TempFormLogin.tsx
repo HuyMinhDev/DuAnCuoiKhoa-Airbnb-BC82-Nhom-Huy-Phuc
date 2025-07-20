@@ -14,18 +14,12 @@ import type { TempFormLoginProps } from "../../types";
 import { useTranslation } from "react-i18next";
 
 const TempFormLogin: React.FC<TempFormLoginProps> = ({ onLoginSuccess }) => {
-  const successUrl =
-    window.location.hostname === "localhost"
-      ? "http://localhost:3000/oauth-callback"
-      : "https://du-an-cuoi-khoa-airbnb-bc-82-git-7f0a11-huys-projects-95245087.vercel.app/oauth-callback";
-
-  const failureUrl =
-    window.location.hostname === "localhost"
-      ? "http://localhost:3000/login"
-      : "https://du-an-cuoi-khoa-airbnb-bc-82-git-7f0a11-huys-projects-95245087.vercel.app/login";
-
   const handleGoogleLogin = () => {
-    account.createOAuth2Session(OAuthProvider.Google, successUrl, failureUrl);
+    account.createOAuth2Session(
+      OAuthProvider.Google,
+      "https://du-an-cuoi-khoa-airbnb-bc-82-nhom-h.vercel.app/oauth-callback",
+      "https://du-an-cuoi-khoa-airbnb-bc-82-nhom-h.vercel.app/login"
+    );
   };
   const { message } = AntdApp.useApp();
   const navigate = useNavigate();
