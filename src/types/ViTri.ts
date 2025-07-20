@@ -21,3 +21,11 @@ export interface PaginatedViTri {
   totalRow: number;
   data: ViTri[];
 }
+export interface QuanLyViTriState {
+  listViTri: ViTri[];
+  viTriInfo: ViTri | null;
+  isModalOpen: boolean;
+  isModalEditOpen: boolean;
+  totalRow: number | null;
+  currentPage: number;
+}

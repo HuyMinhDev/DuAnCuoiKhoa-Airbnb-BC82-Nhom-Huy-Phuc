@@ -1,7 +1,9 @@
 export const PATH = {
   HOME: "/",
   ROOM: "/rooms",
-  LOGIN: "/auth/login",
-  REGISTER: "/auth/register",
+  ROOM_DETAIL: "/room-detail",
+  PROFILE: "/info-user",
+  TEXT: "/test",
+  LOGIN_GOOGLE: "/oauth-callback",
   NOT_FOUND: "*",
 };

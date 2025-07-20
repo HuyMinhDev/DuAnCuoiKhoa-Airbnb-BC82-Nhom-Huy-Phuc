@@ -1,5 +1,7 @@
 {
   "homepage": {
+    "locale": "Ngôn ngữ",
+    "mode": "Chế độ",
     "Locations": {
       "title": "Ở bất cứ đâu",
       "description1": "Toàn bộ nhà",
@@ -56,5 +58,151 @@
         "flow": "Theo Dõi"
       }
     }
+  },
+  "rooms": {
+    "favourite": "Yêu thích",
+    "title": "Danh Sách Các Phòng Hiện Tại",
+    "notRoom": "Hiện Tại Không Có Phòng Với Số Lượng Khách Theo Yêu Cầu",
+    "listRoom": "Danh sách Phòng",
+    "Guests": "Khách",
+    "Bedrooms": "Phòng ngủ",
+    "Beds": "Giường",
+    "Bathrooms": "Phòng tắm",
+    "night": "Đêm"
+  },
+  "message": {
+    "success": {
+      "login": "Đăng nhập thành công!",
+      "regester": "Đăng ký thành công",
+      "delete": "Xóa thành công!",
+      "update": "Cập nhật thành công!",
+      "logout": "Đăng xuất thành công!",
+      "comment": "Bình luận thành công!",
+      "successBooking": "Đặt phòng thành công!"
+    },
+    "warning": {
+      "see-more": "Đăng nhập để xem thông tin cá nhân!",
+      "chooseLocale": "Vui lòng chọn địa điểm trước khi tìm kiếm!",
+      "loginBooking": "Đăng nhập để đặt phòng!",
+      "guestOne": "Phải có tối thiểu 1 khách!",
+      "guestMore": "Đã đạt số lượng khách tối đa!"
+    },
+    "error": {
+      "not-id": "Không tìm thấy ID để xoá.",
+      "chooseImage": "Vui lòng chọn hình hợp lệ!",
+      "delete": "Xóa thất bại!",
+      "update": "Cập nhật thất bại!",
+      "comment": "Bình luận thất bại!",
+      "errorBooking": "Đặt phòng thất bại!",
+      "notData": "Không có dữ liệu phòng!",
+      "login": "Đăng nhập thất bại!",
+      "regester": "Đăng ký thất bại!"
+    },
+    "info": {
+      "not-title": "Hiện chưa có danh hiệu mới",
+      "seeProfile": "Vào trang cá nhân để xem thông tin!"
+    }
+  },
+  "detailPage": {
+    "Vietnam": "Việt Nam",
+    "titleProfile": "* Vào trang User để xem thông tin phòng đã đặt",
+    "title": "Toàn bộ căn hộ - Chủ nhà",
+    "titleLocal": "Chỗ ở tại khu vực bản đồ đã chọn",
+    "titleStart": "Một trong những ngôi nhà được yêu thích nhất trên Airbnb dựa trên điểm xếp hạng, đánh giá và độ tin cậy",
+    "utilities": "Các tiện ích đi kèm",
+    "features": [
+      {
+        "icon": "fa-home",
+        "title": "Toàn bộ nhà",
+        "desc": "Bạn sẽ có chung cư cao cấp cho riêng mình."
+      },
+      {
+        "icon": "fa-broom",
+        "title": "Vệ sinh tăng cường",
+        "desc": "Chủ nhà này đã cam kết thực hiện quy trình vệ sinh tăng cường 5 bước của Airbnb."
+      },
+      {
+        "icon": "fa-award",
+        "title": "Chủ nhà siêu cấp",
+        "desc": "Chủ nhà siêu cấp là những chủ nhà có kinh nghiệm, được đánh giá cao và cam kết mang lại trải nghiệm tuyệt vời."
+      },
+      {
+        "icon": "fa-stopwatch",
+        "title": "Miễn phí hủy trong 48 giờ",
+        "desc": "Bạn sẽ được miễn phí hủy phòng trong 48 giờ."
+      }
+    ],
+    "amenities": {
+      "washingMachine": "Máy giặt",
+      "iron": "Bàn là",
+      "tv": "Tivi",
+      "airConditioner": "Điều hòa",
+      "wifi": "Wifi",
+      "kitchen": "Bếp",
+      "parking": "Bãi đỗ xe",
+      "pool": "Hồ bơi",
+      "steamIron": "Bàn ủi"
+    },
+    "Platinum": "Bạch kim",
+    "Gold": "Vàng",
+    "Silver": "Bạc",
+    "checkIn": "Nhận phòng",
+    "checkOut": "Trả phòng",
+    "cleaning": "Phí vệ sinh",
+    "total": "Tổng cộng trước thuế",
+    "booking": "Đặt phòng"
+  },
+  "comment": {
+    "title": "Bạn chỉ có thể đánh giá sau khi đã trải nghiệm phòng",
+    "button": "Đánh giá",
+    "comment": "Bình luận",
+    "arrange": "Sắp xếp",
+    "newest": "Mới nhất",
+    "oldest": "Cũ nhất",
+    "highest": "Cao nhất",
+    "lowest": "Thấp nhất",
+    "chooseStart": "Vui lòng chọn số sao",
+    "writeComment": "Viết bình luận...",
+    "noComment": "Bạn chưa có nội dung đánh giá!",
+    "notComment": "Hiện không có bình luận nào!",
+    "Collapse": "Thu gọn",
+    "seeMore": "Hiển thị thêm"
+  },
+  "inforUser": {
+    "title": "THÔNG TIN NGƯỜI DÙNG",
+    "update": "Cập nhật ảnh",
+    "verify": "Xác minh danh tính",
+    "verifyUser": "Xác minh danh tính của bạn để nhận huy hiệu!",
+    "superHost": "Chủ nhà siêu cấp",
+    "getBadge": "Nhận huy hiệu",
+    "confirmed": "ADMIN ĐÃ XÁC NHẬN",
+    "email": "Địa chỉ email",
+    "phone": "Số điện thoại",
+    "start": "Bắt đầu tham gia vào 2025",
+    "hello": "Xin chào, tôi là",
+    "editProfile": "Chỉnh sửa hồ sơ",
+    "roomRented": "Phòng đã thuê",
+    "notRoom": "Hiện bạn chưa có phòng, bạn có muốn đặt phòng?",
+    "deleteRoom": "Xoá phòng đã đặt",
+    "sureDelete": "Bạn có chắc muốn xóa phòng đã đặt không?",
+    "yes": "Có",
+    "no": "Không"
+  },
+  "menu": {
+    "title": "Đăng nhập bằng Google",
+    "home": "Trang chủ",
+    "room": "Phòng",
+    "list": "Danh sách",
+    "favourite": "Yêu thích",
+    "contact": "Liên hệ",
+    "profile": "Trang cá nhân",
+    "logout": "Đăng xuất",
+    "login": "Đăng nhập",
+    "regester": "Đăng ký",
+    "password": "Mật khẩu",
+    "plTaikhoan": "Vui lòng nhập tài khoản",
+    "plMatkhau": "Vui lòng nhập mật khẩu",
+    "messTK": "Vui lòng nhập email!",
+    "messMK": "Vui lòng nhập mật khâu!"
   }
 }

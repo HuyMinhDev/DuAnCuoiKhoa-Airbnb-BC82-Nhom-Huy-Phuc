@@ -1,12 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import type { DarkModeState } from "../../types";
 // Lấy dữ liệu từ localStorage
 const themeModeJson = localStorage.getItem("themeMode");
-
-// Kiểu cho state
-interface DarkModeState {
-  themeMode: "light" | "dark";
-}
 
 // Giá trị khởi tạo
 const initialState: DarkModeState = {

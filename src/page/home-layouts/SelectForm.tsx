@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, message, Popover } from "antd";
+import { App as AntdApp, Button, Popover } from "antd";
 import { SearchOutlined, MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { DateRange } from "react-date-range";
@@ -19,20 +19,13 @@ import { vi } from "date-fns/locale";
 import { addDays } from "date-fns";
 import type { RootState, AppDispatch } from "../../store/store";
 import { useTranslation } from "react-i18next";
-// Kiểu location
-interface LocationItem {
-  id: number;
-  hinhAnh: string;
-  tinhThanh: string;
-}
-interface SelectFormProps {
-  isRoompage: boolean;
-  handleSelectRoomByLocation: (id: number | null) => void;
-}
+import type { LocationItem, SelectFormProps } from "../../types";
+
 const SelectForm: React.FC<SelectFormProps> = ({
   isRoompage,
   handleSelectRoomByLocation,
 }) => {
+  const { message } = AntdApp.useApp();
   const { t } = useTranslation();
   const { i18n } = useTranslation();
   const [selectedLocationId, setSelectedLocationId] = useState<number | null>(
@@ -50,8 +43,6 @@ const SelectForm: React.FC<SelectFormProps> = ({
 
   const [dateRange, setDateRange] = useState<Range[]>([
     {
-      // startDate: ngayDen,
-      // endDate: ngayDi,
       startDate: new Date(ngayDen),
       endDate: new Date(ngayDi),
       key: "selection",
@@ -59,7 +50,7 @@ const SelectForm: React.FC<SelectFormProps> = ({
   ]);
   useEffect(() => {
     dayjs.locale(i18n.language);
-    setDateRange((prev) => [...prev]); // kích hoạt re-render bằng cách set lại mảng
+    setDateRange((prev) => [...prev]);
   }, [i18n.language]);
 
   useEffect(() => {
@@ -84,8 +75,6 @@ const SelectForm: React.FC<SelectFormProps> = ({
     const selectedRange = ranges["selection"];
     if (selectedRange.startDate && selectedRange.endDate) {
       setDateRange([selectedRange]);
-      // dispatch(setNgayDen(selectedRange.startDate));
-      // dispatch(setNgayDi(selectedRange.endDate));
       dispatch(setNgayDen(new Date().toISOString()));
       dispatch(setNgayDi(addDays(new Date(), 7).toISOString()));
       const days = Math.round(
@@ -104,7 +93,8 @@ const SelectForm: React.FC<SelectFormProps> = ({
       }
 
       if (window.location.pathname.startsWith("/rooms")) {
-        message.warning("Vui lòng chọn địa điểm trước khi tìm kiếm!");
+        message.warning(t("message.warning.chooseLocale"));
+
         return;
       }
     }
@@ -116,10 +106,9 @@ const SelectForm: React.FC<SelectFormProps> = ({
     setSelectedLocationId(id);
     setOpenLocation(false);
     if (isRoompage) {
-      handleSelectRoomByLocation(id); // Lọc danh sách phòng theo địa điểm
+      handleSelectRoomByLocation(id);
     }
-
-    console.log("Đã chọn địa điểm:", id);
+    // console.log("Đã chọn địa điểm:", id);
   };
 
   const locationContent = (
@@ -236,10 +225,6 @@ const SelectForm: React.FC<SelectFormProps> = ({
             <p className="text-sm font-semibold text-gray-600 mb-1">
               {t("homepage.SelectForm.time")}
             </p>
-            {/* <span className="text-gray-800 text-base sm:text-lg">
-                {dayjs(dateRange[0].startDate).format("DD/MM/YYYY")} -{" "}
-                {dayjs(dateRange[0].endDate).format("DD/MM/YYYY")}
-              </span> */}
             <span className="text-gray-800 text-base sm:text-lg">
               {dayjs(dateRange[0].startDate).format("DD MMMM YYYY")} -{" "}
               {dayjs(dateRange[0].endDate).format("DD MMMM YYYY")}

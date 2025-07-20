@@ -1,4 +1,3 @@
-import React from "react";
 import Carousel from "./Carousel";
 import SelectForm from "./SelectForm";
 import { useSelector } from "react-redux";
@@ -11,7 +10,7 @@ const Homepage = () => {
   return (
     <div className={`${themeMode}`}>
       <Carousel />
-      <SelectForm />
+      <SelectForm isRoompage={false} handleSelectRoomByLocation={() => {}} />
       <List />
       <Locations />
     </div>

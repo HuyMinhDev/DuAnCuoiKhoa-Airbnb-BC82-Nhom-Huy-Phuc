@@ -1,5 +1,7 @@
 {
   "homepage": {
+    "locale": "Language",
+    "mode": "Mode",
     "Locations": {
       "title": "Anywhere",
       "description1": "Entire homes",
@@ -56,5 +58,151 @@
         "flow": "Follow us"
       }
     }
+  },
+  "rooms": {
+    "favourite": "Guest favorite",
+    "title": "Current room list",
+    "notRoom": "There is no room with the number of guests you want",
+    "listRoom": "Room list",
+    "Guests": "Guest",
+    "Bedrooms": "Bedroom",
+    "Beds": "Bed",
+    "Bathrooms": "Bathroom",
+    "night": "Night"
+  },
+  "message": {
+    "success": {
+      "login": "Login successful!",
+      "regester": "Registration successful!",
+      "delete": "Deleted successfully!",
+      "update": "Updated successfully!",
+      "logout": "Logout successful!",
+      "comment": "Comment submitted successfully!",
+      "successBooking": "Booking successful!"
+    },
+    "warning": {
+      "see-more": "Please log in to view personal information!",
+      "chooseLocale": "Please select a location before searching!",
+      "loginBooking": "Please log in to make a booking!",
+      "guestOne": "At least one guest is required!",
+      "guestMore": "Maximum number of guests reached!"
+    },
+    "error": {
+      "not-id": "No ID found for deletion.",
+      "chooseImage": "Please select a valid image!",
+      "delete": "Deletion failed!",
+      "update": "Update failed!",
+      "comment": "Comment submission failed!",
+      "errorBooking": "Booking failed!",
+      "notData": "No room data available!",
+      "login": "Login failed!",
+      "regester": "Registration failed!"
+    },
+    "info": {
+      "not-title": "No new titles at the moment.",
+      "seeProfile": "Go to your profile to view the information!"
+    }
+  },
+  "detailPage": {
+    "Vietnam": "Vietnam",
+    "titleProfile": "* Go to User page to see booked room information",
+    "title": "Entire Apartment - Landlord",
+    "titleLocal": "Accommodation in selected map area",
+    "titleStart": "One of the most popular homes on Airbnb based on ratings, reviews, and reliability",
+    "utilities": "Amenities included",
+    "features": [
+      {
+        "icon": "fa-home",
+        "title": "Entire home",
+        "desc": "You’ll have the premium apartment all to yourself."
+      },
+      {
+        "icon": "fa-broom",
+        "title": "Enhanced clean",
+        "desc": "This host has committed to Airbnb’s 5-step enhanced cleaning process."
+      },
+      {
+        "icon": "fa-award",
+        "title": "Superhost",
+        "desc": "Superhosts are experienced, highly rated hosts who are committed to providing great stays."
+      },
+      {
+        "icon": "fa-stopwatch",
+        "title": "Free cancellation within 48 hours",
+        "desc": "You can cancel for free within 48 hours."
+      }
+    ],
+    "amenities": {
+      "washingMachine": "Washing Machine",
+      "iron": "Iron",
+      "tv": "TV",
+      "airConditioner": "Air Conditioner",
+      "wifi": "Wi-Fi",
+      "kitchen": "Kitchen",
+      "parking": "Parking",
+      "pool": "Swimming Pool",
+      "steamIron": "Steam Iron"
+    },
+    "Platinum": "Platinum",
+    "Gold": "Gold",
+    "Silver": "Silver",
+    "checkIn": "Check in",
+    "checkOut": "Check out",
+    "cleaning": "Cleaning fee",
+    "total": "Total before tax",
+    "booking": "Booking"
+  },
+  "comment": {
+    "title": "You can only rate after experiencing the room.",
+    "button": "Evaluate",
+    "comment": "Comment",
+    "arrange": "Arrange",
+    "newest": "Newest",
+    "oldest": "Oldest",
+    "highest": "Highest",
+    "lowest": "Lowest",
+    "chooseStart": "Please select the number of stars",
+    "writeComment": "Write a comment...",
+    "noComment": "You have no review content yet!",
+    "notComment": "There are currently no comments!",
+    "Collapse": "Collapse",
+    "seeMore": "Show More"
+  },
+  "inforUser": {
+    "title": "USER INFORMATION",
+    "update": "Update photo",
+    "verify": "Verify identity",
+    "verifyUser": "Verify your identity to get a badge!",
+    "superHost": "Superhost",
+    "getBadge": "Get badge",
+    "confirmed": "CONFIRMED BY ADMIN",
+    "email": "Email address",
+    "phone": "Phone number",
+    "start": "Joined in 2025",
+    "hello": "Hello, I am",
+    "editProfile": "Edit profile",
+    "roomRented": "Rented rooms",
+    "notRoom": "You don't have any rooms yet. Would you like to book one?",
+    "deleteRoom": "Delete booked room",
+    "sureDelete": "Are you sure you want to delete the booked room?",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "menu": {
+    "title": "Sign in with Google",
+    "home": "Home",
+    "room": "Room",
+    "list": "List",
+    "favourite": "Favourite",
+    "contact": "Contact",
+    "profile": "To Page User",
+    "logout": "Log out",
+    "login": "Log in",
+    "regester": "Sign up",
+    "password": "Password",
+    "plTaikhoan": "Please enter your account",
+    "plMatkhau": "Please enter your password",
+    "messTK": "Please enter your email!",
+    "messMK": "Please enter your password!"
   }
 }

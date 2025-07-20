@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { phongServices } from "../../services/phongServices";
 
@@ -7,11 +7,9 @@ import type { RootState } from "../../store/store";
 
 import SelectForm from "../home-layouts/SelectForm";
 import type { Phong } from "../../types/Phong";
-
-interface Params {
-  id?: string;
-  [key: string]: string | undefined;
-}
+import type { Params } from "../../types";
+import { useTranslation } from "react-i18next";
+import { Spin } from "antd";
 
 export default function RoomsVitri() {
   const { soLuongKhach } = useSelector(
@@ -21,7 +19,7 @@ export default function RoomsVitri() {
   const [rooms, setRooms] = useState<Phong[]>([]);
   const navigate = useNavigate();
   const { themeMode } = useSelector((state: RootState) => state.darkModeSlice);
-
+  const { t } = useTranslation();
   const handleRoomClick = (id: number) => {
     navigate(`/room-detail/${id}`);
   };
@@ -46,7 +44,7 @@ export default function RoomsVitri() {
           data-aos="zoom-in"
           key={room.id}
           onClick={() => handleRoomClick(room.id)}
-          className="md:flex grid grid-cols-1 border rounded-lg shadow-md overflow-hidden bg-white duration-300 cursor-pointer hover:shadow-lg"
+          className="md:flex grid grid-cols-1 border border-gray-200 rounded-lg shadow-md overflow-hidden bg-white duration-300 cursor-pointer hover:shadow-lg card-boder"
         >
           <img
             src={room.hinhAnh}
@@ -60,26 +58,29 @@ export default function RoomsVitri() {
                 {room.tenPhong}
               </h3>
               <p className="text-sm text-gray-500 mt-1">
-                {room.khach} khách • {room.phongNgu} phòng ngủ • {room.giuong}{" "}
-                giường • {room.phongTam} phòng tắm
+                {room.khach} {t("rooms.Guests")} • {room.phongNgu}{" "}
+                {t("rooms.Bedrooms")} • {room.giuong} {t("rooms.Beds")} •{" "}
+                {room.phongTam} {t("rooms.Bathrooms")}
               </p>
               <p className="text-gray-700 mt-2 text-sm line-clamp-2">
                 {room.moTa}
               </p>
             </div>
             <div className="flex items-center justify-between mt-2">
-              <p className="text-lg font-bold">${room.giaTien} / đêm</p>
+              <p className="text-lg font-bold">
+                ${room.giaTien} / {t("rooms.night")}
+              </p>
               <p className="text-xs font-medium text-gray-500 text-right">
                 {[
-                  room.wifi && "WiFi",
-                  room.mayGiat && "Máy giặt",
-                  room.hoBoi && "Hồ bơi",
-                  room.banUi && "Bàn ủi",
-                  room.dieuHoa && "Điều hòa",
-                  room.bep && "Bếp",
-                  room.tivi && "Tivi",
-                  room.banLa && "Bàn là",
-                  room.doXe && "Đỗ xe",
+                  room.wifi && t("detailPage.amenities.wifi"),
+                  room.mayGiat && t("detailPage.amenities.washingMachine"),
+                  room.hoBoi && t("detailPage.amenities.pool"),
+                  room.banUi && t("detailPage.amenities.steamIron"),
+                  room.dieuHoa && t("detailPage.amenities.airConditioner"),
+                  room.bep && t("detailPage.amenities.kitchen"),
+                  room.tivi && t("detailPage.amenities.tv"),
+                  room.banLa && t("detailPage.amenities.iron"),
+                  room.doXe && t("detailPage.amenities.parking"),
                 ]
                   .filter(Boolean)
                   .join(" • ")}
@@ -90,8 +91,8 @@ export default function RoomsVitri() {
       ));
     } else {
       return (
-        <div className="text-xl font-bold mb-4 text-primary">
-          Hiện Tại Không Có Phòng Với Số Lượng Khách Theo Yêu Cầu
+        <div className="flex justify-center items-center min-h-[300px]">
+          <Spin tip={t("comment.loading")} size="large" />
         </div>
       );
     }
@@ -99,7 +100,7 @@ export default function RoomsVitri() {
 
   useEffect(() => {
     if (id) {
-      console.log("Checking ID:", id);
+      // console.log("Checking ID:", id);
       phongServices
         .locationPhong(id)
         .then((response) => {
@@ -141,7 +142,7 @@ export default function RoomsVitri() {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
         <div className="space-y-4">
           <h2 className="text-2xl font-bold mb-4">
-            Chỗ ở tại khu vực bản đồ đã chọn
+            {t("detailPage.titleLocal")}
           </h2>
           {renderList()}
         </div>

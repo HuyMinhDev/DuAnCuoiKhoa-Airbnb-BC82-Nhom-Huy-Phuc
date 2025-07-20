@@ -20,18 +20,36 @@ export interface Phong {
   hinhAnh: string;
 }
 
-export type CreatePhongPayload = Omit<Phong, "id" | "hinhAnh">;
-
-export type EditPhongPayload = Partial<CreatePhongPayload>;
-
 export interface ApiResponse<T> {
   statusCode: number;
   message: string;
   content: T;
 }
 
-export interface UploadPhongResponse {
-  statusCode: number;
-  message: string;
-  content: string;
+// Kiểu dữ liệu cho bình luận
+export interface Comment {
+  saoBinhLuan: number;
+}
+
+// Kiểu dữ liệu cho thông tin phòng
+export interface InfoRoom {
+  khach: number;
+  phongNgu: number;
+  giuong: number;
+  phongTam: number;
+  moTa: string;
+}
+
+// Kiểu dữ liệu của state Redux
+export interface RootState {
+  detailRoomSlice: {
+    infoRoom: Phong | null; // hoặc undefined nếu ban đầu không có
+    listComment: Comment[];
+  };
+  bookingSlice: {
+    listIdBooking: number[];
+  };
+  darkModeSlice: {
+    themeMode: string;
+  };
 }

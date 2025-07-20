@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
-import { message, Modal } from "antd";
+import { App as AntdApp, Modal } from "antd";
 import TempFormLogin from "../../../page/TempLoginPage/TempFormLogin";
 import TempFormRegister from "../../../page/TempLoginPage/TempFormRegister";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -11,11 +11,13 @@ import {
   setModalContent,
 } from "../../../store/slices/userSlice";
 import DarkLightToggle from "../DarkLightToggle/DarkLightToggle";
-// import FacebookButton from "../../pages/TempLoginPage/FacebookButton";
 import type { RootState, AppDispatch } from "../../../store/store";
 import LocaleSwitcher from "../LocaleSwitcher/LocaleSwitcher";
+import { useTranslation } from "react-i18next";
 
 const TempHeader: React.FC = () => {
+  const { t } = useTranslation();
+  const { message } = AntdApp.useApp();
   const dispatch = useDispatch<AppDispatch>();
 
   const user = useSelector((state: RootState) => state.userSlice.loginData);
@@ -38,7 +40,7 @@ const TempHeader: React.FC = () => {
   const handleLogout = () => {
     localStorage.removeItem("USER_LOGIN");
     localStorage.removeItem("LIST_ID_BOOKING");
-    message.success("Đăng xuất thành công!");
+    message.success(t("message.success.logout"));
     setTimeout(() => {
       setShowDropdown(false);
       window.location.href = "/";
@@ -127,29 +129,40 @@ const TempHeader: React.FC = () => {
         <ul className="items-stretch hidden space-x-3 lg:flex">
           <li className="flex">
             <NavLink
-              //onClick={handleGohome}
               to="/"
-              className="flex items-center px-4 font-normal transition cursor-pointer text-primary"
+              className={({ isActive }) =>
+                `flex items-center px-4 font-normal transition cursor-pointer ${
+                  isActive
+                    ? "font-bold text-active"
+                    : themeMode === "dark" || isScrolled || isRoomDetailPage
+                    ? "custom-text-black"
+                    : "custom-text-white"
+                }`
+              }
             >
-              Home
+              {t("menu.home")}
             </NavLink>
           </li>
 
           {[
-            { label: "Rooms", link: "/rooms", section: null },
+            { label: t("menu.room"), link: "/rooms", section: null },
             {
-              label: "List",
+              label: t("menu.list"),
               link: null,
               section: "listSection",
               showOnHome: true,
             },
             {
-              label: "Favourite",
+              label: t("menu.favourite"),
               link: null,
               section: "locationSection",
               showOnHome: true,
             },
-            { label: "Contact", link: null, section: "contactSection" },
+            {
+              label: t("menu.contact"),
+              link: null,
+              section: "contactSection",
+            },
           ]
             .filter(({ showOnHome }) => {
               if (showOnHome && window.location.pathname !== "/") return false;
@@ -160,13 +173,17 @@ const TempHeader: React.FC = () => {
                 {link ? (
                   <NavLink
                     to={link}
-                    className={`flex items-center px-3 font-normal transition cursor-pointer ${
-                      themeMode === "dark"
-                        ? "text-white hover:text-red-600"
-                        : isScrolled || isRoomDetailPage
-                        ? "text-black hover:text-red-600"
-                        : "text-white hover:text-red-600"
-                    }`}
+                    className={({ isActive }) =>
+                      `flex items-center px-3 font-normal transition cursor-pointer ${
+                        isActive
+                          ? "font-bold text-active" // Custom class for active state
+                          : themeMode === "dark"
+                          ? "custom-text-white"
+                          : isScrolled || isRoomDetailPage
+                          ? "custom-text-black"
+                          : "custom-text-white"
+                      }`
+                    }
                   >
                     {label}
                   </NavLink>
@@ -175,10 +192,10 @@ const TempHeader: React.FC = () => {
                     onClick={() => handleScrollTo(section!)}
                     className={`flex items-center px-3 font-normal transition cursor-pointer ${
                       themeMode === "dark"
-                        ? "text-white hover:text-red-600"
+                        ? "custom-text-white "
                         : isScrolled || isRoomDetailPage
-                        ? "text-black hover:text-red-600"
-                        : "text-white hover:text-red-600"
+                        ? "custom-text-black "
+                        : "custom-text-white "
                     }`}
                   >
                     {label}
@@ -189,8 +206,11 @@ const TempHeader: React.FC = () => {
         </ul>
 
         <div className="gap-3 items-center flex-shrink-0 flex px-8 relative">
-          <DarkLightToggle />
-          <LocaleSwitcher />
+          <div className="flex-row items-center gap-2 hidden md:flex">
+            <DarkLightToggle />
+            <LocaleSwitcher />
+          </div>
+
           {user ? (
             <>
               <div
@@ -229,7 +249,7 @@ const TempHeader: React.FC = () => {
                     top: "calc(100% + 8px)",
                   }}
                 >
-                  <ul>
+                  <ul className="border-b-1 border-gray-300">
                     <li className="px-4 py-2 text-black">{user.user.name}</li>
                     <li className="px-4 truncate text-gray-500">
                       {user.user.email}
@@ -240,19 +260,9 @@ const TempHeader: React.FC = () => {
                       <li>
                         <a
                           href="/info-user"
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 custom-text-gray hover:bg-gray-100"
                         >
-                          To Page User
-                        </a>
-                      </li>
-                    )}
-                    {user.user.role === "ADMIN" && (
-                      <li>
-                        <a
-                          href="/admin/QuanLySoLieu"
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                        >
-                          To Page Admin
+                          {t("menu.profile")}
                         </a>
                       </li>
                     )}
@@ -261,7 +271,7 @@ const TempHeader: React.FC = () => {
                         onClick={handleLogout}
                         className="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-100"
                       >
-                        Sign out
+                        {t("menu.logout")}
                       </button>
                     </li>
                   </ul>
@@ -291,7 +301,7 @@ const TempHeader: React.FC = () => {
                         onClick={() => handleOpenModal("login")}
                         className="block w-full text-center px-4 py-2 text-gray-700 hover:bg-gray-100"
                       >
-                        Đăng nhập
+                        {t("menu.login")}
                       </button>
                     </li>
                     <li>
@@ -299,7 +309,7 @@ const TempHeader: React.FC = () => {
                         onClick={() => handleOpenModal("register")}
                         className="block w-full text-center px-4 py-2 text-gray-700 hover:bg-gray-100"
                       >
-                        Đăng ký
+                        {t("menu.regester")}
                       </button>
                     </li>
                   </ul>
@@ -309,6 +319,7 @@ const TempHeader: React.FC = () => {
           )}
         </div>
 
+        {/* Menu Mobile */}
         <div className="block lg:hidden" ref={dropdownRefMobi}>
           <button
             onClick={() => setIsDropdownOpen((prev) => !prev)}
@@ -325,24 +336,24 @@ const TempHeader: React.FC = () => {
             }`}
           >
             {isDropdownOpen && (
-              <ul className="container bg-gray-700 rounded-lg">
+              <ul className="container bg-gray-700 rounded-lg space-y-2 py-4">
                 {[
-                  { label: "Home", link: "/", action: null },
-                  { label: "Rooms", link: "/rooms", action: null },
+                  { label: t("menu.home"), link: "/", action: null },
+                  { label: t("menu.room"), link: "/rooms", action: null },
                   {
-                    label: "List",
+                    label: t("menu.list"),
                     link: null,
                     action: () => handleScrollTo("listSection"),
                     showOnHome: true,
                   },
                   {
-                    label: "Favourite",
+                    label: t("menu.favourite"),
                     link: null,
                     action: () => handleScrollTo("locationSection"),
                     showOnHome: true,
                   },
                   {
-                    label: "Contact",
+                    label: t("menu.contact"),
                     link: null,
                     action: () => handleScrollTo("contactSection"),
                   },
@@ -360,17 +371,36 @@ const TempHeader: React.FC = () => {
                       {link ? (
                         <NavLink
                           to={link}
-                          className="block text-left text-red-400 font-semibold"
+                          className={({ isActive }) =>
+                            `block text-left font-semibold text-menu ${
+                              isActive ? "text-red-400" : "text-white" // Adjust for mobile menu styling
+                            }`
+                          }
                         >
                           {label}
                         </NavLink>
                       ) : (
-                        <a onClick={action!} className="block text-left">
+                        <a
+                          onClick={action!}
+                          className="block text-left text-menu"
+                        >
                           {label}
                         </a>
                       )}
                     </li>
                   ))}
+                <li className="px-6 py-3 border-gray-600 flex justify-between items-center">
+                  <span className="text-white font-semibold">
+                    {t("homepage.mode")}
+                  </span>
+                  <DarkLightToggle />
+                </li>
+                <li className="px-6 py-3 border-t border-gray-600 flex justify-between items-center">
+                  <span className="text-white font-semibold">
+                    {t("homepage.locale")}
+                  </span>
+                  <LocaleSwitcher />
+                </li>
               </ul>
             )}
           </div>
@@ -379,28 +409,18 @@ const TempHeader: React.FC = () => {
 
       <Modal open={isModalOpen} onCancel={handleCloseModal} footer={null}>
         {modalContent === "login" ? (
-          <>
-            <TempFormLogin
-              onLoginSuccess={() => {
-                dispatch(setIsModalOpen(false));
-                setShowDropdown(false);
-              }}
-              setModalContent={setModalContent}
-            />
-            {/* <FacebookButton
-              onLoginSuccess={() => {
-                dispatch(setIsModalOpen(false));
-                setShowDropdown(false);
-              }}
-            /> */}
-          </>
+          <TempFormLogin
+            onLoginSuccess={() => {
+              dispatch(setIsModalOpen(false));
+              setShowDropdown(false);
+            }}
+          />
         ) : (
           <TempFormRegister
             onRegisterSuccess={() => {
               dispatch(setModalContent("login"));
               setShowDropdown(false);
             }}
-            setModalContent={setModalContent}
           />
         )}
       </Modal>

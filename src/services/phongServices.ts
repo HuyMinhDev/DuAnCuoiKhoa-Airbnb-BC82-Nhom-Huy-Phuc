@@ -1,11 +1,5 @@
 import fetcher from "../api/fetcher";
-import type {
-  Phong,
-  ApiResponse,
-  CreatePhongPayload,
-  EditPhongPayload,
-  UploadPhongResponse,
-} from "../types/Phong";
+import type { Phong, ApiResponse } from "../types/Phong";
 
 export const phongServices = {
   // Lấy danh sách tất cả phòng
@@ -39,34 +33,5 @@ export const phongServices = {
 
   // Lấy thông tin phòng chi tiết
   getPhongInfo: (id: number | string): Promise<ApiResponse<Phong>> =>
-    fetcher.get(`/phong-thue/${id}`),
-
-  // Tạo mới phòng
-  createPhong: (
-    phongData: CreatePhongPayload,
-    tokenBearer: string
-  ): Promise<ApiResponse<Phong>> =>
-    fetcher.post(`/phong-thue`, phongData, {
-      headers: { token: tokenBearer },
-    }),
-
-  // Upload hình ảnh phòng
-  uploadHinhPhong: (
-    formData: FormData,
-    maPhong: number | string,
-    tokenBearer: string
-  ): Promise<UploadPhongResponse> =>
-    fetcher.post(`/phong-thue/upload-hinh-phong?maPhong=${maPhong}`, formData, {
-      headers: { token: tokenBearer },
-    }),
-
-  // Chỉnh sửa phòng
-  editPhong: (
-    id: number | string,
-    phongData: EditPhongPayload,
-    tokenBearer: string
-  ): Promise<ApiResponse<Phong>> =>
-    fetcher.put(`/phong-thue/${id}`, phongData, {
-      headers: { token: tokenBearer },
-    }),
+    fetcher.get(`/phong-thue/${id}`).then((res) => res.data),
 };
