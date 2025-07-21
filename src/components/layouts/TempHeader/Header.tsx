@@ -123,7 +123,7 @@ const TempHeader: React.FC = () => {
             alt="Airbnb logo"
             className="w-10 h-8 object-contain mr-2"
           />
-          <span className="text-3xl text-primary">airpnp</span>
+          <span className="text-3xl text-primary">airbnb</span>
         </a>
 
         <ul className="items-stretch hidden space-x-3 lg:flex">
