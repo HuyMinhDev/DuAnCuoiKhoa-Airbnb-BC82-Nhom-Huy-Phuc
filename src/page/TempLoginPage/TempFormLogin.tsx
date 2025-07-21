@@ -14,11 +14,18 @@ import type { TempFormLoginProps } from "../../types";
 import { useTranslation } from "react-i18next";
 
 const TempFormLogin: React.FC<TempFormLoginProps> = ({ onLoginSuccess }) => {
+  // const handleGoogleLogin = () => {
+  //   account.createOAuth2Session(
+  //     OAuthProvider.Google,
+  //     "https://du-an-cuoi-khoa-airbnb-bc-82-nhom-h.vercel.app/oauth-callback",
+  //     "https://du-an-cuoi-khoa-airbnb-bc-82-nhom-h.vercel.app/login"
+  //   );
+  // };
   const handleGoogleLogin = () => {
     account.createOAuth2Session(
       OAuthProvider.Google,
-      "https://du-an-cuoi-khoa-airbnb-bc-82-nhom-h.vercel.app/oauth-callback",
-      "https://du-an-cuoi-khoa-airbnb-bc-82-nhom-h.vercel.app/login"
+      "http://localhost:3000/oauth-callback",
+      "http://localhost:3000/login"
     );
   };
   const { message } = AntdApp.useApp();
