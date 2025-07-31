@@ -107,10 +107,10 @@ const TempHeader: React.FC = () => {
 
   return (
     <header
-      className={`${themeMode} fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`${themeMode} fixed top-0 left-0 w-full z-35 transition-all duration-500 ${
         isScrolled || isRoomDetailPage
           ? "bg-white shadow-md h-20"
-          : "bg-transparent h-28"
+          : "bg-transparent h-22"
       } flex items-center pb-2`}
     >
       <div className="container flex justify-center md:justify-between items-center mx-auto">

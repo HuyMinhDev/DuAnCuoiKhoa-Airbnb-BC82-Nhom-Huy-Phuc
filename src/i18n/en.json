@@ -204,5 +204,8 @@
     "plMatkhau": "Please enter your password",
     "messTK": "Please enter your email!",
     "messMK": "Please enter your password!"
+  },
+  "chatbot": {
+    "messenger": "👋 Hello! I'm your AI assistant at Tiki. I'm still in development, so I might not always be accurate. You can give feedback to help me improve. I'm ready to answer your questions. How can I assist you today? ^^"
   }
 }

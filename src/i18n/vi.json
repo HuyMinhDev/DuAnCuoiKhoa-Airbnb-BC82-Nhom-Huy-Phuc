@@ -204,5 +204,8 @@
     "plMatkhau": "Vui lòng nhập mật khẩu",
     "messTK": "Vui lòng nhập email!",
     "messMK": "Vui lòng nhập mật khâu!"
+  },
+  "chatbot": {
+    "messenger": "👋 Xin chào! Mình là trợ lý AI của bạn tại Tiki. Mình đang phát triển nên không phải lúc nào cũng đúng. Bạn có thể phản hồi để giúp mình cải thiện tốt hơn. Mình sẵn sàng trả lời câu hỏi của bạn. Hôm nay bạn cần mình hỗ trợ gì hông? ^^"
   }
 }
