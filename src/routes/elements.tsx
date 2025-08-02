@@ -7,6 +7,10 @@ import { useRoutes } from "react-router-dom";
 import { PATH } from "./path";
 import HomeLayout from "../page/home-layouts/HomeLayout";
 import Homepage from "../page/home-layouts/Homepage";
+import AdminDashboard from "../page/admin/Admin";
+import RoomManagement from "../page/admin/RoomManagement";
+import QuanLyNguoiDung from "../page/admin/QuanLyNguoiDung";
+import Dashboard from "../page/admin/Dashboard";
 
 export default function useRouterElements() {
   const elements = useRoutes([
@@ -74,6 +78,23 @@ export default function useRouterElements() {
     //     </DashboardLayout>
     //   ),
     // },
+    {
+      path: PATH.ADMIN,
+      element: <AdminDashboard />,
+    },
+    {
+      path: PATH.ROOM_MANAGE,
+      element: <RoomManagement />,
+    },
+    {
+      path: PATH.USER,
+      element: <QuanLyNguoiDung />,
+    },
+    {
+      path: PATH.DASHBOARD,
+      element: <Dashboard />,
+    },
+
     { path: PATH.NOT_FOUND, element: <div>404 Not Found</div> },
   ]);
   return elements;
