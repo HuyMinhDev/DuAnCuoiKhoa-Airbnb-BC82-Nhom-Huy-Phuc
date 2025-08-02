@@ -110,6 +110,7 @@
     "titleLocal": "Accommodation in selected map area",
     "titleStart": "One of the most popular homes on Airbnb based on ratings, reviews, and reliability",
     "utilities": "Amenities included",
+    "noutilities": "No utilities included",
     "features": [
       {
         "icon": "fa-home",
@@ -207,5 +208,52 @@
   },
   "chatbot": {
     "messenger": "👋 Hello! I'm your AI assistant at Tiki. I'm still in development, so I might not always be accurate. You can give feedback to help me improve. I'm ready to answer your questions. How can I assist you today? ^^"
+  },
+  "404": {
+    "title": "404",
+    "subtitle": "Page not found",
+    "description": "Sorry, we couldn’t find the page you’re looking for. It might have been moved or deleted.",
+    "backToHome": "Back to home"
+  },
+  "modalPayment": {
+    "title": "Payment",
+    "tab1": {
+      "title": "Method"
+    },
+    "tab2": {
+      "title": "Payment"
+    },
+    "radio": {
+      "online": "Pay by card",
+      "offline": "Pay by cash"
+    },
+    "button": {
+      "next": "Next",
+      "back": "Back",
+      "submit": "Pay"
+    },
+    "form": {
+      "cardNumber": "Card number",
+      "cardNumberError": "Must be 4 digits",
+      "cardNumberRequired": "Card number is required!",
+      "cardNumberPattern": "Must be numeric",
+      "expiry": "Expiry date",
+      "expiryRequired": "Expiry date is required!",
+      "cardholder": "Cardholder name",
+      "cardholderRequired": "Cardholder name is required!",
+      "cardholderPattern": "Must contain only letters",
+      "cvv": "CVV",
+      "cvvRequired": "Must be 3 digits"
+    },
+    "cash": {
+      "amount": "Amount to pay in cash:",
+      "currency": "$"
+    }
+  },
+  "modalReBooking": {
+    "title": "You have already booked this room",
+    "message": "Do you want to continue booking this room?",
+    "okText": "Continue",
+    "cancelText": "No"
   }
 }

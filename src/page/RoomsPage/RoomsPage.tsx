@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { phongServices } from "../../services/phongServices";
 import { useNavigate } from "react-router-dom";
-import { App as AntdApp, Pagination, Spin } from "antd";
+import { App as AntdApp, Pagination } from "antd";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
 import type { Phong } from "../../types/Phong";
@@ -101,8 +101,8 @@ export default function RoomsPage() {
       ));
     } else {
       return (
-        <div className="flex justify-center items-center min-h-[300px] w-full ">
-          <Spin tip={t("comment.loading")} size="large" />
+        <div className="flex flex-col justify-center items-center min-h-[300px] w-full text-center">
+          <p className="text-gray-600 text-lg">{t("rooms.notRoom")}</p>
         </div>
       );
     }

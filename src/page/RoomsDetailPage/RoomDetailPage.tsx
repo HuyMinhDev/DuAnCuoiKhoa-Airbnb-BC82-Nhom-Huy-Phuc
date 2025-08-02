@@ -104,6 +104,11 @@ export default function RoomDetailPage() {
         );
       }
     });
+    if (tienIchContent.length === 0) {
+      return (
+        <p className="text-gray-500 italic">{t("detailPage.noutilities")}</p>
+      );
+    }
     return tienIchContent;
   };
 

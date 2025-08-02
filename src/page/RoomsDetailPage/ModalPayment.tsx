@@ -8,6 +8,7 @@ import type { TabsProps } from "antd";
 import type { RadioChangeEvent } from "antd";
 import type { RootState } from "../../store/store"; // Sửa path nếu store nằm khác chỗ
 import type { ValidateErrorEntity } from "rc-field-form/lib/interface";
+import { useTranslation } from "react-i18next";
 type ModalPaymentProps = {
   bookingAction: () => void;
 };
@@ -29,7 +30,7 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
   const [value, setValue] = useState<"online" | "offline">("online");
   const [activeTab, setActiveTab] = useState("1");
   const [optionTab1, setOptionTab] = useState<"online" | "offline">("online");
-
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const handleOk = () => {
@@ -67,7 +68,7 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
         <Space direction="vertical">
           <Radio value="online">
             <div className="grid grid-cols-1 md:flex justify-center items-center gap-3 text-xl">
-              <p>Thanh toán bằng thẻ</p>
+              <p>{t("modalPayment.radio.online")}</p>
               <div>
                 <i className="fab fa-cc-visa"></i>
                 <i className="fab fa-cc-mastercard"></i>
@@ -78,7 +79,7 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
           </Radio>
           <Radio value="offline">
             <div className="grid grid-cols-1 md:flex justify-center items-center gap-3 text-xl">
-              <p>Thanh toán bằng tiền mặt</p>
+              <p>{t("modalPayment.radio.offline")}</p>
               <div>
                 <i className="fa fa-money-bill"></i>
               </div>
@@ -88,7 +89,7 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
       </Radio.Group>
       <div className="w-full mt-5">
         <button className="button-primary" onClick={() => setActiveTab("2")}>
-          Tiếp
+          {t("modalPayment.button.next")}
         </button>
       </div>
     </div>
@@ -104,17 +105,17 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
           autoComplete="off"
         >
           <Form.Item
-            label="Số thẻ"
+            label={t("modalPayment.form.cardNumber")}
             name="soThe"
             hasFeedback
             rules={[
               {
                 required: true,
-                message: "Số thẻ không được để trống!",
+                message: t("modalPayment.form.cardNumberRequired"),
               },
               {
                 pattern: /^[0-9]+$/,
-                message: "Phải là số",
+                message: t("modalPayment.form.cardNumberPattern"),
               },
             ]}
           >
@@ -127,7 +128,7 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
                   rules={[
                     {
                       required: true,
-                      message: "Phải có 4 số",
+                      message: t("modalPayment.form.cardNumberError"),
                       pattern: /^\d{4}$/,
                     },
                   ]}
@@ -139,13 +140,13 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
           </Form.Item>
 
           <Form.Item
-            label="Mã thẻ"
+            label={t("modalPayment.form.cvv")}
             name="maThe"
             hasFeedback
             rules={[
               {
                 required: true,
-                message: "Phải có 3 số",
+                message: t("modalPayment.form.cvvRequired"),
                 pattern: /^\d{3}$/,
               },
             ]}
@@ -154,13 +155,13 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
           </Form.Item>
 
           <Form.Item
-            label="Ngày hết hạn"
+            label={t("modalPayment.form.expiry")}
             name="HSD"
             hasFeedback
             rules={[
               {
                 required: true,
-                message: "Ngày hết hạn không được để trống!",
+                message: t("modalPayment.form.expiryRequired"),
               },
             ]}
           >
@@ -168,16 +169,16 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
           </Form.Item>
 
           <Form.Item
-            label="Tên chủ thẻ"
+            label={t("modalPayment.form.cardholder")}
             name="chuThe"
             rules={[
               {
                 required: true,
-                message: "Tên chủ thẻ không được để trống!",
+                message: t("modalPayment.form.cardholderRequired"),
               },
               {
                 pattern: /^[a-zA-Z ]+$/,
-                message: "Phải là chữ",
+                message: t("modalPayment.form.cardholderPattern"),
               },
             ]}
           >
@@ -190,10 +191,10 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
               onClick={() => setActiveTab("1")}
               type="button"
             >
-              Quay lại
+              {t("modalPayment.button.back")}
             </button>
             <button className="button-primary" type="submit">
-              Thanh toán
+              {t("modalPayment.title")}
             </button>
           </div>
         </Form>
@@ -203,7 +204,7 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
     return (
       <div>
         <p>
-          Số tiền mặt cần trả:{" "}
+          {t("modalPayment.cash.amount")}{" "}
           <span className="font-bold">{tienTruocThue} $</span>
         </p>
         <div className="flex justify-between mt-5">
@@ -211,10 +212,10 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
             className="button-outline-primary"
             onClick={() => setActiveTab("1")}
           >
-            Quay lại
+            {t("modalPayment.button.back")}
           </button>
           <button className="button-primary" onClick={bookingAction}>
-            Thanh toán
+            {t("modalPayment.button.submit")}
           </button>
         </div>
       </div>
@@ -224,12 +225,12 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
   const items: TabsProps["items"] = [
     {
       key: "1",
-      label: "Hình thức",
+      label: t("modalPayment.tab1.title"),
       children: renderContentTab1(),
     },
     {
       key: "2",
-      label: "Thanh toán",
+      label: t("modalPayment.tab2.title"),
       children: renderContentTab2(),
     },
   ];
