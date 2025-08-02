@@ -8,6 +8,7 @@ import RoomDetailPage from "../page/RoomsDetailPage/RoomDetailPage";
 import InfoUserPage from "../components/layouts/InfoUserPage/InfoUserPage";
 
 import OAuthCallback from "../page/TempLoginPage/OAuthCallback";
+import NotFoundPage from "../components/layouts/NotFoundPage/NotFoundPage";
 
 export default function useRouterElements() {
   const elements = useRoutes([
@@ -60,7 +61,14 @@ export default function useRouterElements() {
       ),
     },
 
-    { path: PATH.NOT_FOUND, element: <div>404 Not Found</div> },
+    {
+      path: PATH.NOT_FOUND,
+      element: (
+        <div>
+          <NotFoundPage />
+        </div>
+      ),
+    },
   ]);
   return elements;
 }

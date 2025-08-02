@@ -6,13 +6,14 @@ import {
   setIsModalReBookingOpen,
 } from "../../store/slices/bookingSlice";
 import type { RootState } from "../../store/store";
+import { useTranslation } from "react-i18next";
 
 const ModalReBooking: React.FC = () => {
   const dispatch = useDispatch();
   const { isModalReBookingOpen } = useSelector(
     (state: RootState) => state.bookingSlice
   );
-
+  const { t } = useTranslation();
   const handleOk = () => {
     dispatch(setIsModalReBookingOpen(false));
     dispatch(setIsModalPaymentOpen(true));
@@ -24,14 +25,14 @@ const ModalReBooking: React.FC = () => {
 
   return (
     <Modal
-      title="Phòng này bạn đã đặt"
-      okText="Tiếp tục"
-      cancelText="Không"
+      title={t("modalReBooking.title")}
+      okText={t("modalReBooking.okText")}
+      cancelText={t("modalReBooking.cancelText")}
       open={isModalReBookingOpen}
       onOk={handleOk}
       onCancel={handleCancel}
     >
-      <p>Bạn có muốn tiếp tục đặt phòng này?</p>
+      <p>{t("modalReBooking.message")}</p>
     </Modal>
   );
 };

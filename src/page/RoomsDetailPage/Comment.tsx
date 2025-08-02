@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Input, Rate, Select, App as AntdApp } from "antd";
 import dayjs from "dayjs";
@@ -28,10 +28,13 @@ export default function Comment({ idRoom }: CommentProps) {
   const { TextArea } = Input;
   const dispatch = useDispatch<AppDispatch>();
   const [form] = Form.useForm();
-
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     if (idRoom) {
-      dispatch(fetchListCommentByIdRoomAction(idRoom));
+      setIsLoading(true);
+      dispatch(fetchListCommentByIdRoomAction(idRoom)).finally(() =>
+        setIsLoading(false)
+      );
     }
   }, [dispatch, idRoom]);
 
@@ -65,51 +68,59 @@ export default function Comment({ idRoom }: CommentProps) {
   };
 
   const renderListComment = () => {
-    if (listComment.length > 0) {
-      // Sắp xếp từ mới nhất đến cũ nhất
-      const sortedComments = [...listComment].sort((a, b) => {
-        return (
-          new Date(b.ngayBinhLuan).getTime() -
-          new Date(a.ngayBinhLuan).getTime()
-        );
-      });
+    if (isLoading) {
+      return (
+        <div className="flex justify-center items-center min-h-[200px]">
+          <Spin tip={t("comment.loading")} size="large" />
+        </div>
+      );
+    }
 
-      return sortedComments.map((item: CommentItem) => (
-        <div key={item.id}>
-          <div className="flex items-center gap-3">
-            <div>
-              <img
-                src={
-                  item.avatar ||
-                  "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
-                }
-                alt="avatar"
-                className="mx-auto h-12 w-12 object-cover rounded-full"
+    if (listComment.length === 0) {
+      return (
+        <div className="flex justify-center items-center min-h-[200px]">
+          <p className="text-gray-500 italic">{t("comment.notComment")}</p>
+        </div>
+      );
+    }
+
+    // Sắp xếp từ mới nhất đến cũ nhất
+    const sortedComments = [...listComment].sort((a, b) => {
+      return (
+        new Date(b.ngayBinhLuan).getTime() - new Date(a.ngayBinhLuan).getTime()
+      );
+    });
+
+    return sortedComments.map((item: CommentItem) => (
+      <div key={item.id}>
+        <div className="flex items-center gap-3">
+          <div>
+            <img
+              src={
+                item.avatar ||
+                "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
+              }
+              alt="avatar"
+              className="mx-auto h-12 w-12 object-cover rounded-full"
+            />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h1 className="text-lg font-bold">{item.tenNguoiBinhLuan}</h1>
+              <Rate
+                disabled
+                defaultValue={item.saoBinhLuan}
+                className="bg-white bg-rate custom-rate"
               />
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-lg font-bold">{item.tenNguoiBinhLuan}</h1>
-                <Rate
-                  disabled
-                  defaultValue={item.saoBinhLuan}
-                  className="bg-white bg-rate custom-rate"
-                />
-              </div>
-              <p className="text-sm text-gray-500">
-                {dayjs(item.ngayBinhLuan).format("DD-MM-YY hh:mm")}
-              </p>
-            </div>
+            <p className="text-sm text-gray-500">
+              {dayjs(item.ngayBinhLuan).format("DD-MM-YY hh:mm")}
+            </p>
           </div>
-          <p className="mt-3">{item.noiDung}</p>
         </div>
-      ));
-    }
-    return (
-      <div className="flex justify-center items-center min-h-[300px]">
-        <Spin tip={t("comment.loading")} size="large" />
+        <p className="mt-3">{item.noiDung}</p>
       </div>
-    );
+    ));
   };
 
   const handleSortListComment = (order: string, key: keyof CommentItem) => {
@@ -194,7 +205,7 @@ export default function Comment({ idRoom }: CommentProps) {
           </Form>
         </div>
       ) : (
-        <div className="mb-5">
+        <div className="mb-5 border-b-2 border-gray-300">
           <p className="text-primary">{t("comment.title")}</p>
         </div>
       )}

@@ -110,6 +110,7 @@
     "titleLocal": "Chỗ ở tại khu vực bản đồ đã chọn",
     "titleStart": "Một trong những ngôi nhà được yêu thích nhất trên Airbnb dựa trên điểm xếp hạng, đánh giá và độ tin cậy",
     "utilities": "Các tiện ích đi kèm",
+    "noutilities": "Không có tiện ích đi kèm",
     "features": [
       {
         "icon": "fa-home",
@@ -207,5 +208,52 @@
   },
   "chatbot": {
     "messenger": "👋 Xin chào! Mình là trợ lý AI của bạn tại Tiki. Mình đang phát triển nên không phải lúc nào cũng đúng. Bạn có thể phản hồi để giúp mình cải thiện tốt hơn. Mình sẵn sàng trả lời câu hỏi của bạn. Hôm nay bạn cần mình hỗ trợ gì hông? ^^"
+  },
+  "404": {
+    "title": "404",
+    "subtitle": "Trang không tồn tại",
+    "description": "Xin lỗi, chúng tôi không thể tìm thấy trang bạn yêu cầu. Có thể đường dẫn đã bị thay đổi hoặc trang đã bị xóa.",
+    "backToHome": "Quay về trang chủ"
+  },
+  "modalPayment": {
+    "title": "Thanh toán",
+    "tab1": {
+      "title": "Hình thức"
+    },
+    "tab2": {
+      "title": "Thanh toán"
+    },
+    "radio": {
+      "online": "Thanh toán bằng thẻ",
+      "offline": "Thanh toán bằng tiền mặt"
+    },
+    "button": {
+      "next": "Tiếp",
+      "back": "Quay lại",
+      "submit": "Thanh toán"
+    },
+    "form": {
+      "cardNumber": "Số thẻ",
+      "cardNumberError": "Phải có 4 số",
+      "cardNumberRequired": "Số thẻ không được để trống!",
+      "cardNumberPattern": "Phải là số",
+      "expiry": "Ngày hết hạn",
+      "expiryRequired": "Ngày hết hạn không được để trống!",
+      "cardholder": "Tên chủ thẻ",
+      "cardholderRequired": "Tên chủ thẻ không được để trống!",
+      "cardholderPattern": "Phải là chữ",
+      "cvv": "Mã thẻ",
+      "cvvRequired": "Phải có 3 số"
+    },
+    "cash": {
+      "amount": "Số tiền mặt cần trả:",
+      "currency": "$"
+    }
+  },
+  "modalReBooking": {
+    "title": "Phòng này bạn đã đặt",
+    "message": "Bạn có muốn tiếp tục đặt phòng này?",
+    "okText": "Tiếp tục",
+    "cancelText": "Không"
   }
 }

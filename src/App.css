@@ -245,3 +245,17 @@
   color: rgb(254, 107, 110) !important;
   font-weight: bold;
 }
+.button-404 {
+  padding: 8px 12px;
+  background-color: rgb(254, 107, 110);
+  border: solid;
+  border-width: 2px;
+  border-radius: 8px;
+  color: white;
+  transition: 0.3s;
+}
+.button-404:hover {
+  box-shadow: inset !important;
+  background-color: white !important;
+  color: rgb(254, 107, 110) !important;
+}
