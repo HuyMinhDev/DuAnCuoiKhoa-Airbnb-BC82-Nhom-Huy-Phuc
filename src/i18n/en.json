@@ -278,5 +278,24 @@
     "message": "Do you want to continue booking this room?",
     "okText": "Continue",
     "cancelText": "No"
+  },
+  "updateImage": {
+    "title": "Change Profile Picture",
+    "form": {
+      "chooseImage": "Please select an image!"
+    },
+    "button": {
+      "update": "Update",
+      "cancel": "Cancel"
+    },
+    "message": {
+      "error": {
+        "chooseImage": "You haven't selected a profile picture!",
+        "update": "Failed to update profile picture!"
+      },
+      "success": {
+        "update": "Profile picture updated successfully!"
+      }
+    }
   }
 }

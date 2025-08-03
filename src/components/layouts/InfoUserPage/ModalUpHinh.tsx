@@ -78,8 +78,8 @@ export default function ModalUpHinh({ idUser }: ModalUpHinhProps) {
       <Modal
         closable={false}
         open={isModalUpHinhOpen}
-        okText="Cập nhật"
-        cancelText="Hủy"
+        okText={t("updateImage.button.update")}
+        cancelText={t("updateImage.button.cancel")}
         okButtonProps={{
           autoFocus: true,
           htmlType: "submit",
@@ -100,7 +100,7 @@ export default function ModalUpHinh({ idUser }: ModalUpHinhProps) {
           </Form>
         )}
       >
-        <h1 className="my-3 text-2xl text-center">Thay đổi ảnh đại diện</h1>
+        <h1 className="my-3 text-2xl text-center">{t("updateImage.title")}</h1>
         <div>
           <img
             src={
@@ -118,7 +118,12 @@ export default function ModalUpHinh({ idUser }: ModalUpHinhProps) {
           valuePropName="fileList"
           getValueFromEvent={normFile}
           style={{ textAlign: "center", marginTop: "20px" }}
-          rules={[{ required: true, message: "Vui lòng chọn hình!" }]}
+          rules={[
+            {
+              required: true,
+              message: t("updateImage.form.chooseImage"),
+            },
+          ]}
           hasFeedback
         >
           <Upload

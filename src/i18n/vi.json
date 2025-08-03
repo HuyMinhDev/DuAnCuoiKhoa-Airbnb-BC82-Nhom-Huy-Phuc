@@ -278,5 +278,24 @@
     "message": "Bạn có muốn tiếp tục đặt phòng này?",
     "okText": "Tiếp tục",
     "cancelText": "Không"
+  },
+  "updateImage": {
+    "title": "Thay đổi ảnh đại diện",
+    "form": {
+      "chooseImage": "Vui lòng chọn hình!"
+    },
+    "button": {
+      "update": "Cập nhật",
+      "cancel": "Hủy"
+    },
+    "message": {
+      "error": {
+        "chooseImage": "Bạn chưa chọn ảnh đại diện!",
+        "update": "Cập nhật ảnh đại diện thất bại!"
+      },
+      "success": {
+        "update": "Cập nhật ảnh đại diện thành công!"
+      }
+    }
   }
 }
