@@ -10,7 +10,7 @@ import Homepage from "../page/home-layouts/Homepage";
 import AdminDashboard from "../page/admin/Admin";
 import RoomManagement from "../page/admin/RoomManagement";
 import QuanLyNguoiDung from "../page/admin/QuanLyNguoiDung";
-import Dashboard from "../page/admin/Dashboard";
+import Dashboard from "../page/admin/DashBoard";
 
 export default function useRouterElements() {
   const elements = useRoutes([

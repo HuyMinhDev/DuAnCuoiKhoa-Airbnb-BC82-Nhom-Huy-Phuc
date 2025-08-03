@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Layout, Menu, Modal } from "antd";
 import { UserOutlined, HomeOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Link, Outlet } from "react-router-dom"; // 👈 Thêm Outlet
-import QuanLyNguoiDung from "./QuanLyNguoiDung";
-import Dashboard from "./Dashboard";
+import Dashboard from "./DashBoard";
 
 const { Header, Content, Sider } = Layout;
 
