@@ -187,7 +187,28 @@
     "deleteRoom": "Delete booked room",
     "sureDelete": "Are you sure you want to delete the booked room?",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "form": {
+      "title": "Update personal information",
+      "okText": "Update",
+      "cancelText": "Cancel",
+      "email": "Email",
+      "emailInvalid": "Invalid email!",
+      "emailRequired": "Please enter your email!",
+      "phone": "Phone number",
+      "phoneRequired": "Please enter your phone number!",
+      "phoneNumberOnly": "Must be a number",
+      "phoneLength": "Must be 10 digits",
+      "gender": "Gender",
+      "genderRequired": "Please select gender!",
+      "male": "Male",
+      "female": "Female",
+      "name": "Name",
+      "nameTooltip": "Name displayed to everyone",
+      "nameRequired": "Please enter your name!",
+      "birthday": "Date of birth",
+      "birthdayRequired": "Please select date of birth!"
+    }
   },
   "menu": {
     "title": "Sign in with Google",
@@ -239,6 +260,8 @@
       "cardNumberPattern": "Must be numeric",
       "expiry": "Expiry date",
       "expiryRequired": "Expiry date is required!",
+      "expiryPlaceholder": "MM/YY",
+      "cardholderPlaceholder": "Enter cardholder name",
       "cardholder": "Cardholder name",
       "cardholderRequired": "Cardholder name is required!",
       "cardholderPattern": "Must contain only letters",

@@ -187,7 +187,28 @@
     "deleteRoom": "Xoá phòng đã đặt",
     "sureDelete": "Bạn có chắc muốn xóa phòng đã đặt không?",
     "yes": "Có",
-    "no": "Không"
+    "no": "Không",
+    "form": {
+      "title": "Cập nhật thông tin cá nhân",
+      "okText": "Cập nhật",
+      "cancelText": "Hủy",
+      "email": "Email",
+      "emailInvalid": "Email không hợp lệ!",
+      "emailRequired": "Vui lòng nhập email!",
+      "phone": "Số điện thoại",
+      "phoneRequired": "Vui lòng nhập số điện thoại!",
+      "phoneNumberOnly": "Phải là số",
+      "phoneLength": "Phải có 10 số",
+      "gender": "Giới tính",
+      "genderRequired": "Vui lòng chọn giới tính!",
+      "male": "Nam",
+      "female": "Nữ",
+      "name": "Tên",
+      "nameTooltip": "Tên hiển thị với mọi người",
+      "nameRequired": "Vui lòng nhập tên người dùng!",
+      "birthday": "Ngày sinh",
+      "birthdayRequired": "Vui lòng chọn ngày sinh!"
+    }
   },
   "menu": {
     "title": "Đăng nhập bằng Google",
@@ -239,6 +260,8 @@
       "cardNumberPattern": "Phải là số",
       "expiry": "Ngày hết hạn",
       "expiryRequired": "Ngày hết hạn không được để trống!",
+      "expiryPlaceholder": "MM/YY",
+      "cardholderPlaceholder": "Vui lòng nhập tên chủ thẻ",
       "cardholder": "Tên chủ thẻ",
       "cardholderRequired": "Tên chủ thẻ không được để trống!",
       "cardholderPattern": "Phải là chữ",

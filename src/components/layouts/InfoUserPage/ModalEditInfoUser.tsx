@@ -80,8 +80,8 @@ export default function ModalEditInfoUser() {
       <Modal
         closable={false}
         open={isModalEditOpen}
-        okText="Cập nhật"
-        cancelText="Hủy"
+        okText={t("inforUser.form.okText")}
+        cancelText={t("inforUser.form.cancelText")}
         okButtonProps={{
           autoFocus: true,
           htmlType: "submit",
@@ -106,7 +106,7 @@ export default function ModalEditInfoUser() {
         )}
       >
         <h1 className="my-3 text-2xl text-center">
-          Cập nhật thông tin cá nhân
+          {t("inforUser.form.title")}
         </h1>
 
         <Row gutter={24}>
@@ -119,11 +119,11 @@ export default function ModalEditInfoUser() {
               rules={[
                 {
                   type: "email",
-                  message: "Email không hợp lệ!",
+                  message: t("inforUser.form.emailInvalid"),
                 },
                 {
                   required: true,
-                  message: "Vui lòng nhập email!",
+                  message: t("inforUser.form.emailRequired"),
                   whitespace: true,
                 },
               ]}
@@ -134,22 +134,22 @@ export default function ModalEditInfoUser() {
             {/* phone */}
             <Form.Item
               name="phone"
-              label="Số điện thoại"
+              label={t("inforUser.form.phone")}
               rules={[
                 {
                   required: true,
-                  message: "Vui lòng nhập số điện thoại!",
+                  message: t("inforUser.form.phoneRequired"),
                   whitespace: true,
                 },
                 {
                   required: true,
-                  message: "Phải là số",
+                  message: t("inforUser.form.phoneNumberOnly"),
                   pattern: new RegExp(/^[0-9]+$/),
                 },
 
                 {
                   required: true,
-                  message: "Phải có 10 số",
+                  message: t("inforUser.form.phoneLength"),
                   pattern: new RegExp(/^\d{10}$/),
                 },
               ]}
@@ -165,11 +165,11 @@ export default function ModalEditInfoUser() {
             {/* gender */}
             <Form.Item
               name="gender"
-              label="Giới tính"
+              label={t("inforUser.form.gender")}
               rules={[
                 {
                   required: true,
-                  message: "Vui lòng chọn giới tính!",
+                  message: t("inforUser.form.genderRequired"),
                 },
               ]}
               hasFeedback
@@ -179,11 +179,11 @@ export default function ModalEditInfoUser() {
                 options={[
                   {
                     value: true,
-                    label: "Nam",
+                    label: t("inforUser.form.male"),
                   },
                   {
                     value: false,
-                    label: "Nữ",
+                    label: t("inforUser.form.female"),
                   },
                 ]}
               ></Select>
@@ -194,12 +194,12 @@ export default function ModalEditInfoUser() {
             {/* name */}
             <Form.Item
               name="name"
-              label="Tên"
-              tooltip="Tên hiển thị với mọi người"
+              label={t("inforUser.form.name")}
+              tooltip={t("inforUser.form.nameTooltip")}
               rules={[
                 {
                   required: true,
-                  message: "Vui lòng nhập tên người dùng!",
+                  message: t("inforUser.form.nameRequired"),
                   whitespace: true,
                 },
               ]}
@@ -211,11 +211,11 @@ export default function ModalEditInfoUser() {
             {/* birthday */}
             <Form.Item
               name="birthday"
-              label="Ngày sinh"
+              label={t("inforUser.form.birthday")}
               rules={[
                 {
                   required: true,
-                  message: "Vui lòng chọn ngày sinh!",
+                  message: t("inforUser.form.birthdayRequired"),
                 },
               ]}
               hasFeedback

@@ -9,6 +9,7 @@ import type { RadioChangeEvent } from "antd";
 import type { RootState } from "../../store/store"; // Sửa path nếu store nằm khác chỗ
 import type { ValidateErrorEntity } from "rc-field-form/lib/interface";
 import { useTranslation } from "react-i18next";
+
 type ModalPaymentProps = {
   bookingAction: () => void;
 };
@@ -99,26 +100,14 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
     if (optionTab1 === "online") {
       return (
         <Form
-          name="basic"
+          name="paymentForm"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
+          layout="vertical"
         >
-          <Form.Item
-            label={t("modalPayment.form.cardNumber")}
-            name="soThe"
-            hasFeedback
-            rules={[
-              {
-                required: true,
-                message: t("modalPayment.form.cardNumberRequired"),
-              },
-              {
-                pattern: /^[0-9]+$/,
-                message: t("modalPayment.form.cardNumberPattern"),
-              },
-            ]}
-          >
+          {/* Card Number Input */}
+          <Form.Item label={t("modalPayment.form.cardNumber")}>
             <Space>
               {["soThe1", "soThe2", "soThe3", "soThe4"].map((name) => (
                 <Form.Item
@@ -129,16 +118,21 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
                     {
                       required: true,
                       message: t("modalPayment.form.cardNumberError"),
+                    },
+                    {
                       pattern: /^\d{4}$/,
+                      message: t("modalPayment.form.cardNumberPattern"),
                     },
                   ]}
+                  noStyle={false}
                 >
-                  <Input />
+                  <Input maxLength={4} placeholder="XXXX" inputMode="numeric" />
                 </Form.Item>
               ))}
             </Space>
           </Form.Item>
 
+          {/* CVV Input */}
           <Form.Item
             label={t("modalPayment.form.cvv")}
             name="maThe"
@@ -147,13 +141,21 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
               {
                 required: true,
                 message: t("modalPayment.form.cvvRequired"),
-                pattern: /^\d{3}$/,
+              },
+              {
+                pattern: /^\d{3,4}$/, // Often CVV can be 3 or 4 digits
+                message: t("modalPayment.form.cvvPattern"), // Specific message for pattern
               },
             ]}
           >
-            <Input />
+            <Input
+              maxLength={4} // Max length for CVV
+              placeholder="CVV"
+              inputMode="numeric"
+            />
           </Form.Item>
 
+          {/* Expiry Date Input */}
           <Form.Item
             label={t("modalPayment.form.expiry")}
             name="HSD"
@@ -165,9 +167,16 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
               },
             ]}
           >
-            <DatePicker format={"MM/YYYY"} picker="month" minDate={dayjs()} />
+            <DatePicker
+              format="MM/YYYY"
+              picker="month"
+              minDate={dayjs()}
+              placeholder={t("modalPayment.form.expiryPlaceholder")}
+              style={{ width: "100%" }}
+            />
           </Form.Item>
 
+          {/* Cardholder Name Input */}
           <Form.Item
             label={t("modalPayment.form.cardholder")}
             name="chuThe"
@@ -177,14 +186,15 @@ const ModalPayment: React.FC<ModalPaymentProps> = ({ bookingAction }) => {
                 message: t("modalPayment.form.cardholderRequired"),
               },
               {
-                pattern: /^[a-zA-Z ]+$/,
+                pattern: /^[a-zA-Z\s.'-]+$/, // More comprehensive pattern for names
                 message: t("modalPayment.form.cardholderPattern"),
               },
             ]}
           >
-            <Input />
+            <Input placeholder={t("modalPayment.form.cardholderPlaceholder")} />
           </Form.Item>
 
+          {/* Form Action Buttons */}
           <div className="flex justify-between mt-5">
             <button
               className="button-outline-primary"
