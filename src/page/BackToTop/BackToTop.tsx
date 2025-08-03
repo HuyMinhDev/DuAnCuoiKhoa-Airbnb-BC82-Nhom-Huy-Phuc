@@ -1,5 +1,5 @@
 // src/components/BackToTop.jsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react"; // Hoặc dùng icon tuỳ thích
 import "./BackToTop.scss"; // Tuỳ chọn nếu dùng CSS riêng
 
@@ -24,7 +24,7 @@ export default function BackToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-6 right-6 bg-red-600 hover:bg-red-800 text-white p-3 rounded-full shadow-lg transition-all z-50"
+      className="fixed bottom-6 right-6 bg-[#FE6B6E] text-white p-3 rounded-full shadow-lg transition-all z-50"
     >
       <ArrowUp />
     </button>

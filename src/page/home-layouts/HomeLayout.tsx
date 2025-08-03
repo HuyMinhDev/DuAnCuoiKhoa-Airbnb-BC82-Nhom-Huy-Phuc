@@ -1,31 +1,22 @@
-import React from "react";
-import type { ReactNode } from "react";
 import TempHeader from "../../components/layouts/TempHeader/Header";
 import Footer from "../../components/layouts/TempFooter/Footercial";
-
-// import Header from "./Header";
-// import Footer from "./Footer";
-// import "./HomeLayout.scss";
-// import BackToTop from "../BackToTop/BackToTop";
-
-interface HomeLayoutProps {
-  children: ReactNode;
-}
+import BackToTop from "../BackToTop/BackToTop";
+import type { HomeLayoutProps } from "../../types";
+import Chatbot from "../../components/layouts/Chatbot/Chatbot";
 
 export default function HomeLayout({ children }: HomeLayoutProps) {
   return (
-    <div className="home-layout">
+    <div className="home-layout min-h-screen flex flex-col">
       <header>
         <TempHeader />
       </header>
 
-      {children}
-
+      <main className="flex-1 min-h-[500px]">{children}</main>
+      <Chatbot />
       <footer>
         <Footer />
       </footer>
-
-      {/* <BackToTop /> */}
+      <BackToTop />
     </div>
   );
 }

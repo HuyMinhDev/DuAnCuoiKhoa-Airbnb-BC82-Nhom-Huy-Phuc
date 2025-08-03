@@ -37,7 +37,7 @@ const Carousel: React.FC = () => {
               data-aos="fade-up"
               data-aos-duration="1000"
             >
-              airpnp
+              airbnb
             </h1>
           </div>
           <p

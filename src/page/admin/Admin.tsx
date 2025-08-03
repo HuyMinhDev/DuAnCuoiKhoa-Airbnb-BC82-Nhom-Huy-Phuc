@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { Layout, Menu, Modal } from "antd";
 import { UserOutlined, HomeOutlined, LogoutOutlined } from "@ant-design/icons";
+<<<<<<< HEAD
 import { Link, Outlet } from "react-router-dom"; // 👈 Thêm Outlet
 import Dashboard from "./DashBoard";
+=======
+import { Link } from "react-router-dom"; // 👈 Thêm Outlet
+import QuanLyNguoiDung from "./QuanLyNguoiDung";
+>>>>>>> 9a665d7e3659e41fb689cfbad7b79c04c762c37a
 
 const { Header, Content, Sider } = Layout;
 

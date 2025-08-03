@@ -27,24 +27,28 @@ export const deleteRoom = async (id: number) => {
   });
 };
 
+// export const updateRoom = (
+//   roomId: number | string,
+//   roomData: Partial<Room>
+// ): Promise<AxiosResponse<ApiResponse<Room>>> => {
+//   return axios.put(`${BASE_URL}/phong-thue/`, {
+//     headers: {
+//       TokenCybersoft: TOKEN,
+//       "Content-Type": "application/json",
+//     },
+//   });
+// };
 export const updateRoom = (
   roomId: number | string,
   roomData: Partial<Room>
 ): Promise<AxiosResponse<ApiResponse<Room>>> => {
-  // const userLogin = localStorage.getItem("USER_LOGIN");
-  // const parsedUser = userLogin ? JSON.parse(userLogin) : null;
-  // const accessToken = parsedUser?.token;
-
   return axios.put(`${BASE_URL}/phong-thue/${roomId}`, roomData, {
     headers: {
-      token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUzMDYxIiwiZW1haWwiOiJodXlkZXZAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwibmJmIjoxNzU0MjMxMTk3LCJleHAiOjE3NTQ4MzU5OTd9.lWcLW21aZJGfwuWSBshAUWAIXK1GbBTxifQbN3lIplQ", // lấy từ localStorage
-      tokenCybersoft: TOKEN,
+      TokenCybersoft: TOKEN,
       "Content-Type": "application/json",
     },
   });
 };
-
 export const createRoom = (
   roomData: Partial<Room>
 ): Promise<AxiosResponse<ApiResponse<Room>>> => {

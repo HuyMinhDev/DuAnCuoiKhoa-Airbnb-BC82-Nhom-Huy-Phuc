@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-footer text-white py-12" id="lienHe">
+    <footer id="contactSection" className="bg-footer text-white py-12">
       <div className="container mx-auto px-4">
         <div className="bg-footer-top grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and Contact */}
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
                   className="w-10 h-8 object-contain mr-2"
                   alt="Airbnb logo"
                 />
-                <span className="text-3xl text-primary">airpnp</span>
+                <span className="text-3xl text-primary">airbnb</span>
               </div>
               <p>
                 Email:
@@ -256,11 +256,7 @@ const Footer: React.FC = () => {
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               {["/terms-of-use", "/privacyPolicy", "/faq", "/playlist"].map(
                 (path) => (
-                  <Link
-                    key={path}
-                    to={path}
-                    className="hover:text-primary transition-colors"
-                  >
+                  <Link key={path} to={path} className="text-footer">
                     {path.replace("/", "").replace(/-/g, " ")}
                   </Link>
                 )
