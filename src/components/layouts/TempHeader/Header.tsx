@@ -266,6 +266,18 @@ const TempHeader: React.FC = () => {
                         </a>
                       </li>
                     )}
+                    {user.user.role === "ADMIN" ? (
+                      <li>
+                        <a
+                          href="/admin/QuanLySoLieu"
+                          className="block px-4 py-2 custom-text-gray hover:bg-gray-100"
+                        >
+                          {t("menu.admin")}
+                        </a>
+                      </li>
+                    ) : (
+                      <></>
+                    )}
                     <li>
                       <button
                         onClick={handleLogout}
