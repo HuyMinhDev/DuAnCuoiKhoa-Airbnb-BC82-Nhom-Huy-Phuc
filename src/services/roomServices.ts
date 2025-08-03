@@ -26,11 +26,22 @@ export const deleteRoom = async (id: number) => {
   });
 };
 
+// export const updateRoom = (
+//   roomId: number | string,
+//   roomData: Partial<Room>
+// ): Promise<AxiosResponse<ApiResponse<Room>>> => {
+//   return axios.put(`${BASE_URL}/phong-thue/`, {
+//     headers: {
+//       TokenCybersoft: TOKEN,
+//       "Content-Type": "application/json",
+//     },
+//   });
+// };
 export const updateRoom = (
   roomId: number | string,
   roomData: Partial<Room>
 ): Promise<AxiosResponse<ApiResponse<Room>>> => {
-  return axios.put(`${BASE_URL}/phong-thue/`, {
+  return axios.put(`${BASE_URL}/phong-thue/${roomId}`, roomData, {
     headers: {
       TokenCybersoft: TOKEN,
       "Content-Type": "application/json",

@@ -20,8 +20,6 @@ export interface BookingState {
   listIdBooking: number[] | null;
   isBooked: boolean;
   totalDay: number;
-  // ngayDen: Date;
-  // ngayDi: Date;
   ngayDen: Date | string;
   ngayDi: Date | string;
   soLuongKhach: number;
@@ -29,4 +27,8 @@ export interface BookingState {
   isModalCalendarOpen: boolean;
   isModalPaymentOpen: boolean;
   isModalReBookingOpen: boolean;
+}
+export interface CheckIsBookedParams {
+  listIdBooking: number[];
+  idRoom: number;
 }

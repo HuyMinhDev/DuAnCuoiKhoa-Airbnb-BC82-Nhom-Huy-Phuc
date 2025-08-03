@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Layout, Menu, Modal } from "antd";
 import { UserOutlined, HomeOutlined, LogoutOutlined } from "@ant-design/icons";
-import { Link, Outlet } from "react-router-dom"; // 👈 Thêm Outlet
+import { Link } from "react-router-dom"; // 👈 Thêm Outlet
 import QuanLyNguoiDung from "./QuanLyNguoiDung";
 
 const { Header, Content, Sider } = Layout;

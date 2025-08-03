@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import type { Booking } from "../../types/Booking";
+import type { Booking, CheckIsBookedParams } from "../../types/Booking";
 import { bookingServices } from "../../services/bookingServices";
 
 type GetListIdBookingParams = string | number;
@@ -18,11 +18,6 @@ export const getListIdBookingAction = createAsyncThunk<
 
   return listIdBookingClone;
 });
-
-interface CheckIsBookedParams {
-  listIdBooking: number[];
-  idRoom: number;
-}
 
 export const checkIsBookedAction = createAsyncThunk<
   boolean,

@@ -11,11 +11,9 @@ const listIdBookingJson: string | null =
   localStorage.getItem("LIST_ID_BOOKING");
 
 const initialState: BookingState = {
-  listIdBooking: listIdBookingJson ? JSON.parse(listIdBookingJson) : null,
+  listIdBooking: listIdBookingJson ? JSON.parse(listIdBookingJson) : [],
   isBooked: false,
   totalDay: 7,
-  // ngayDen: new Date(),
-  // ngayDi: addDays(new Date(), 7),
   ngayDen: new Date().toISOString(),
   ngayDi: addDays(new Date(), 7).toISOString(),
   soLuongKhach: 1,
@@ -47,12 +45,6 @@ const bookingSlice = createSlice({
     setSoLuongKhach: (state, action: PayloadAction<number>) => {
       state.soLuongKhach = action.payload;
     },
-    // setNgayDen: (state, action: PayloadAction<Date>) => {
-    //   state.ngayDen = action.payload;
-    // },
-    // setNgayDi: (state, action: PayloadAction<Date>) => {
-    //   state.ngayDi = action.payload;
-    // },
     setNgayDen: (state, action: PayloadAction<string>) => {
       state.ngayDen = action.payload;
     },
@@ -73,7 +65,7 @@ const bookingSlice = createSlice({
         state.listIdBooking = action.payload;
       }
     );
-    builder.addCase(getListIdBookingAction.rejected, (state, action) => {
+    builder.addCase(getListIdBookingAction.rejected, (_, action) => {
       console.error(action.error);
     });
     builder.addCase(
@@ -82,7 +74,7 @@ const bookingSlice = createSlice({
         state.isBooked = action.payload;
       }
     );
-    builder.addCase(checkIsBookedAction.rejected, (state, action) => {
+    builder.addCase(checkIsBookedAction.rejected, (_, action) => {
       console.error(action.error);
     });
   },

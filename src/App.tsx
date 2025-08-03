@@ -7,6 +7,7 @@ import AOS from "aos";
 import useRouterElements from "./routes/elements";
 import { ToastContainer } from "react-toastify";
 import Spinner from "./components/layouts/spinner/Spinner";
+
 AOS.init();
 function App() {
   const elements = useRouterElements();
