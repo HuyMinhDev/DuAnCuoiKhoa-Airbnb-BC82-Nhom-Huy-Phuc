@@ -29,7 +29,7 @@ import type { User } from "../../types/User";
 
 const QuanLyNguoiDung: React.FC = () => {
   const [userList, setUserList] = useState<User[]>([]);
-  const [searchKeyword, setSearchKeyword] = useState<string>("");
+  const [searchKeyword, setSearchKeyword] = useState("");
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
 
@@ -39,6 +39,7 @@ const QuanLyNguoiDung: React.FC = () => {
       setUserList(data);
     } catch (error) {
       console.error("Lỗi tải người dùng:", error);
+      message.error("Không thể tải danh sách người dùng");
     }
   };
 
@@ -50,14 +51,14 @@ const QuanLyNguoiDung: React.FC = () => {
     const updatedUser = { ...user, role };
     try {
       await updateUserApi(user.id, updatedUser);
-      message.success(`Đã cập nhật vai trò thành ${role}`);
+      message.success(`✅ Vai trò cập nhật thành ${role}`);
       fetchUsers();
     } catch (error: any) {
       console.error(
         "Lỗi cập nhật vai trò:",
         error.response?.data || error.message
       );
-      message.error("Cập nhật vai trò thất bại");
+      message.error("❌ Cập nhật vai trò thất bại");
     }
   };
 
@@ -69,10 +70,10 @@ const QuanLyNguoiDung: React.FC = () => {
   const handleDeleteUser = async (userId: number) => {
     try {
       await deleteUserApi(userId);
-      message.success("Xóa người dùng thành công");
+      message.success("🗑️ Xóa người dùng thành công");
       fetchUsers();
     } catch {
-      message.error("Lỗi khi xóa người dùng");
+      message.error("❌ Lỗi khi xóa người dùng");
     }
   };
 
@@ -97,23 +98,23 @@ const QuanLyNguoiDung: React.FC = () => {
       key: "role",
       render: (role) =>
         role === "ADMIN" ? (
-          <Tag color="red">Quản trị</Tag>
+          <Tag color="volcano">Quản trị</Tag>
         ) : (
-          <Tag color="green">Người dùng</Tag>
+          <Tag color="blue">Người dùng</Tag>
         ),
     },
     {
       title: "Hành động",
       key: "actions",
       render: (_, record) => (
-        <Space wrap>
-          <Tooltip title="Xem">
+        <Space size="middle" wrap>
+          <Tooltip title="Xem chi tiết">
             <Button
               icon={<EyeOutlined />}
               onClick={() => handleViewUser(record)}
             />
           </Tooltip>
-          <Tooltip title="Xóa">
+          <Tooltip title="Xóa người dùng">
             <Button
               danger
               icon={<DeleteOutlined />}
@@ -121,7 +122,7 @@ const QuanLyNguoiDung: React.FC = () => {
             />
           </Tooltip>
           {record.role !== "ADMIN" && (
-            <Tooltip title="Set Admin">
+            <Tooltip title="Cấp quyền Admin">
               <Button
                 type="dashed"
                 icon={<CrownOutlined />}
@@ -130,7 +131,7 @@ const QuanLyNguoiDung: React.FC = () => {
             </Tooltip>
           )}
           {record.role !== "USER" && (
-            <Tooltip title="Set User">
+            <Tooltip title="Chuyển về User">
               <Button
                 type="dashed"
                 icon={<EditOutlined />}
@@ -145,33 +146,42 @@ const QuanLyNguoiDung: React.FC = () => {
 
   return (
     <>
-      <Card
-        title="👥 Quản lý người dùng"
-        style={{ margin: "24px auto", maxWidth: "100%" }}
-        bodyStyle={{ padding: 20 }}
-        headStyle={{ fontSize: 20, fontWeight: 600 }}
-      >
-        <Row justify="space-between" gutter={[16, 16]} align="middle">
-          <Col xs={24} sm={12} md={8}>
-            <Input.Search
-              placeholder="Tìm theo tên người dùng"
-              value={searchKeyword}
-              onChange={(e) => setSearchKeyword(e.target.value)}
-              allowClear
-            />
-          </Col>
-        </Row>
+      <div style={{ padding: "24px 48px" }}>
+        <Card
+          title="👥 Quản lý người dùng"
+          style={{ width: "100%" }}
+          bodyStyle={{ padding: 32 }}
+          headStyle={{
+            fontSize: 26,
+            fontWeight: 700,
+            textAlign: "center",
+          }}
+        >
+          <Row justify="space-between" gutter={[16, 16]} align="middle">
+            <Col xs={24} sm={12} md={8}>
+              <Input.Search
+                placeholder="🔍 Tìm theo tên người dùng"
+                value={searchKeyword}
+                onChange={(e) => setSearchKeyword(e.target.value)}
+                allowClear
+                size="large"
+              />
+            </Col>
+          </Row>
 
-        <Table
-          style={{ marginTop: 20 }}
-          dataSource={filteredUsers}
-          columns={columns}
-          rowKey="id"
-          pagination={{ pageSize: 6 }}
-          bordered
-          scroll={{ x: "max-content" }}
-        />
-      </Card>
+          <Table
+            style={{ marginTop: 20 }}
+            dataSource={filteredUsers}
+            columns={columns}
+            rowKey="id"
+            pagination={{ pageSize: 6 }}
+            bordered
+            scroll={{ x: "max-content" }}
+            size="middle"
+            rowClassName={() => "custom-row"}
+          />
+        </Card>
+      </div>
 
       <Modal
         title="📋 Thông tin người dùng"
@@ -179,6 +189,7 @@ const QuanLyNguoiDung: React.FC = () => {
         onCancel={() => setIsViewModalOpen(false)}
         footer={<Button onClick={() => setIsViewModalOpen(false)}>Đóng</Button>}
         width={600}
+        bodyStyle={{ fontSize: 16, lineHeight: 1.8 }}
       >
         {selectedUser && (
           <Row gutter={[16, 16]}>
@@ -212,6 +223,22 @@ const QuanLyNguoiDung: React.FC = () => {
           </Row>
         )}
       </Modal>
+
+      <style>{`
+        .custom-row td {
+          font-size: 16px;
+        }
+        .ant-table-thead > tr > th {
+          font-size: 16px;
+          font-weight: 600;
+        }
+        .ant-input {
+          font-size: 16px;
+        }
+        .ant-btn {
+          font-size: 15px;
+        }
+      `}</style>
     </>
   );
 };

@@ -3,6 +3,7 @@ import { Layout, Menu, Modal } from "antd";
 import { UserOutlined, HomeOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Link, Outlet } from "react-router-dom"; // 👈 Thêm Outlet
 import QuanLyNguoiDung from "./QuanLyNguoiDung";
+import Dashboard from "./Dashboard";
 
 const { Header, Content, Sider } = Layout;
 
@@ -63,13 +64,11 @@ const AdminDashboard: React.FC = () => {
         <Header
           style={{ background: "#fff", padding: 16, textAlign: "center" }}
         >
-          <h1 style={{ fontSize: "24px", marginBottom: 0 }}>
-            Quản trị Admin - airpnp
-          </h1>
+          <h1 style={{ fontSize: "24px", marginBottom: 0 }}>Trang Quản Trị</h1>
         </Header>
 
         <Content style={{ margin: "24px" }}>
-          <QuanLyNguoiDung />
+          <Dashboard />
         </Content>
       </Layout>
 
