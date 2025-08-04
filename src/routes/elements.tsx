@@ -9,9 +9,30 @@ import InfoUserPage from "../components/layouts/InfoUserPage/InfoUserPage";
 
 import OAuthCallback from "../page/TempLoginPage/OAuthCallback";
 import NotFoundPage from "../components/layouts/NotFoundPage/NotFoundPage";
+import AdminLayout from "../components/layouts/AdminLayout/AdminLayout";
+import QuanLyNguoiDungPage from "../page/QuanLyNguoiDungPage/QuanLyNguoiDungPage";
+import QuanLyViTriPage from "../page/QuanLyViTriPage/QuanLyViTriPage";
+import QuanLyPhongPage from "../page/QuanLyPhongPage/QuanLyPhongPage";
+import QuanLyBookingPage from "../page/QuanLyBookingPage/QuanLyBookingPage";
 
 export default function useRouterElements() {
   const elements = useRoutes([
+    {
+      path: PATH.ADMIN_MANAGEMENT_USER,
+      element: <AdminLayout content={<QuanLyNguoiDungPage />} />,
+    },
+    {
+      path: PATH.ADMIN_MANAGEMENT_LOCAL,
+      element: <AdminLayout content={<QuanLyViTriPage />} />,
+    },
+    {
+      path: PATH.ADMIN_MANAGEMENT_ROOM,
+      element: <AdminLayout content={<QuanLyPhongPage />} />,
+    },
+    {
+      path: PATH.ADMIN_MANAGEMENT_BOOKING,
+      element: <AdminLayout content={<QuanLyBookingPage />} />,
+    },
     {
       path: PATH.HOME,
       element: (

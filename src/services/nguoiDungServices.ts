@@ -5,6 +5,7 @@ import type {
   UploadAvatarResponse,
   DefaultResponse,
   ApiResponse,
+  PaginatedUserContent,
 } from "../types/User";
 import fetcher from "../api/fetcher";
 
@@ -29,4 +30,14 @@ export const nguoiDungServices = {
     fetcher.post(`/users/upload-avatar`, formFile, {
       headers: { token: tokenBearer },
     }),
+  findUser: (
+    pageIndex: number,
+    pageSize: number,
+    keyword: string
+  ): Promise<AxiosResponse<ApiResponse<PaginatedUserContent>>> =>
+    fetcher.get(
+      `/users/phan-trang-tim-kiem?pageIndex=${pageIndex}&pageSize=${pageSize}&keyword=${keyword}`
+    ),
+  deleteUser: (id: number | string) => fetcher.delete(`/users?id=${id}`),
+  createUser: (user: User) => fetcher.post(`/users`, user),
 };

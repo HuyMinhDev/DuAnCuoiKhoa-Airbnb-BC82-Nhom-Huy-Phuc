@@ -14,7 +14,10 @@ export interface Booking {
   soLuongKhach: number;
   maNguoiDung: number;
 }
-
+export type BookingPayload = Omit<Booking, "ngayDen" | "ngayDi"> & {
+  ngayDen: string;
+  ngayDi: string;
+};
 // State của Redux slice booking
 export interface BookingState {
   listIdBooking: number[] | null;

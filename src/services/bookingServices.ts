@@ -1,6 +1,6 @@
 import fetcher from "../api/fetcher";
 import type { AxiosResponse } from "axios";
-import type { Booking, ApiResponse } from "../types/Booking";
+import type { Booking, ApiResponse, BookingPayload } from "../types/Booking";
 
 export const bookingServices = {
   getListBooking: (): Promise<AxiosResponse<ApiResponse<Booking[]>>> =>
@@ -27,8 +27,8 @@ export const bookingServices = {
     fetcher.post(`/dat-phong`, booking),
 
   editBooking: (
-    id: number | string,
-    bookingInfo: Booking
+    id: number,
+    bookingInfo: BookingPayload
   ): Promise<AxiosResponse<ApiResponse<Booking>>> =>
     fetcher.put(`/dat-phong/${id}`, bookingInfo),
 };
