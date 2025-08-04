@@ -40,6 +40,7 @@ export const createListBookedRoomAction = createAsyncThunk<Phong[], number[]>(
   async (listId: number[]) => {
     const listBookedRoomClone: Phong[] = [];
     const result = await phongServices.getListPhong();
+    console.log("Check list phong: ", result);
     const listPhong: Phong[] = result.content;
 
     listId.forEach((id) => {

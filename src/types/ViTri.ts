@@ -6,7 +6,7 @@ export interface ViTri {
   quocGia: string;
   hinhAnh: string;
 }
-
+export type CreateViTriDto = Omit<ViTri, "id">;
 // Interface cho dữ liệu trả về chung từ API
 export interface ApiResponse<T> {
   statusCode: number;

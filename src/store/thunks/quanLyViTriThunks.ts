@@ -2,14 +2,23 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { viTriServices } from "../../services/viTriServices";
 import type { PaginatedViTri, ViTri } from "../../types/ViTri";
 
-// Action: Lấy danh sách vị trí có phân trang và tìm kiếm
+interface FetchListViTriParams {
+  currentPage: number;
+  valueInput: string;
+  pageSize?: number;
+}
+
 export const fetchListViTriAction = createAsyncThunk<
-  PaginatedViTri, // Kết quả trả về
-  { currentPage: number; valueInput: string } // Tham số truyền vào
+  PaginatedViTri,
+  FetchListViTriParams
 >(
   "quanLyViTriSlice/fetchListViTriAction",
-  async ({ currentPage, valueInput }) => {
-    const result = await viTriServices.findViTri2(currentPage, 3, valueInput);
+  async ({ currentPage, valueInput, pageSize = 3 }) => {
+    const result = await viTriServices.findViTri2(
+      currentPage,
+      pageSize,
+      valueInput
+    );
     return result.content;
   }
 );

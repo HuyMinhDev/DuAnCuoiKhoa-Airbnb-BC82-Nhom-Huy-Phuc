@@ -5,6 +5,10 @@ export const PATH = {
   PROFILE: "/info-user",
   TEXT: "/test",
   LOGIN_GOOGLE: "/oauth-callback",
-
+  ADMIN_MANAGEMENT_MAP: "/admin/QuanLySoLieu",
+  ADMIN_MANAGEMENT_USER: "/admin/QuanLyNguoiDung",
+  ADMIN_MANAGEMENT_ROOM: "/admin/QuanLyPhong",
+  ADMIN_MANAGEMENT_BOOKING: "/admin/QuanLyBooking",
+  ADMIN_MANAGEMENT_LOCAL: "/admin/QuanLyViTri",
   NOT_FOUND: "*",
 };
