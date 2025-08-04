@@ -1,69 +1,145 @@
-# React + TypeScript + Vite
+# 🌐 BC82 - Nhóm 3 - Website Đặt Phòng
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dự án website đặt phòng được xây dựng với mục tiêu giúp người dùng dễ dàng tìm kiếm và đặt phòng nhanh chóng, đồng thời cung cấp giao diện quản lý cho admin và người dùng.
 
-Currently, two official plugins are available:
+## 📅 Timeline
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Bắt đầu**: 24/06
+- **Hoàn thành xây dựng**: 02/08
+- **Hoàn thành kiểm thử**: 04/08
 
-## Expanding the ESLint configuration
+## 👨‍💻 Thành viên thực hiện
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Minh Huy**: Toàn bộ giao diện người dùng và các chức năng chính
+- **Hồng Phúc**: Phối hợp xây dựng và kiểm thử các tính năng quản trị
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🧩 Tính năng chính
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Trang chính
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- `HomePage`: Trang chủ giới thiệu và điều hướng
+  - `Carousel`: Trình chiếu hình ảnh
+  - `SelectForm`: Biểu mẫu tìm kiếm vị trí/phòng
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Tài khoản người dùng
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- `Login`: Đăng nhập
+- `Register`: Đăng ký
+- `UserPage`: Thông tin và hoạt động của người dùng
+- `Đặt phòng`: Chức năng đặt phòng
+
+### Danh sách
+
+- `List vị trí`: Hiển thị các vị trí có thể đặt phòng
+- `List phòng`: Hiển thị các phòng theo vị trí
+
+### Trang quản trị (`Admin`)
+
+- `QuanLyNguoiDung`: Quản lý người dùng
+- `QuanLyViTri`: Quản lý vị trí
+- `QuanLyPhong`: Quản lý phòng
+- `QuanLyBooking`: Quản lý đơn đặt phòng
+
+### Khác
+
+- `NotFoundPage`: Trang 404
+
+---
+
+## 🧱 Components
+
+- `Header`, `Footer`: Thanh điều hướng & chân trang
+- `BackToTop` Button
+- `Dark/Light Toggle`
+- `Slider`: Dùng trong giao diện phòng
+- `Chatbot`: Hỗ trợ người dùng
+- `LocaleSwitcher`: Đổi ngôn ngữ
+- `Spinner`: Hiển thị trạng thái loading
+
+---
+
+## 🧩 Templates
+
+- `Layout`: Layout tổng thể
+- `AdminLayout`: Layout riêng cho admin
+
+---
+
+## 🎁 Bonus Features
+
+- Phân hạng chủ nhà theo rating
+- Hỗ trợ Dark/Light mode
+- ScrollToTop
+- Animation bằng thư viện AOS
+- Đa ngôn ngữ (i18n)
+- Chatbot AI (Gemini tích hợp)
+
+---
+
+## ✅ Tiến độ kiểm thử
+
+Tất cả các tính năng đã hoàn thành **100%** và được **kiểm thử đầy đủ** bởi tất cả các thành viên.
+
+---
+
+## 📂 Công nghệ sử dụng
+
+- ReactJS
+- Redux Toolkit
+- Ant Design
+- TypeScript
+- i18next
+- AOS
+- AI Chatbot (Gemini API)
+
+---
+
+## Phân công dự án:
+
+| **Chức năng**                    | **Người thực hiện** | **Thời gian thực hiện** | **Trạng thái** |
+| -------------------------------- | ------------------- | ----------------------- | -------------- |
+| HomePage                         | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| └─ Carousel                      | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| └─ SelectForm                    | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| Login                            | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| Register                         | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| List vị trí                      | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| List phòng                       | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| Đặt phòng                        | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| UserPage                         | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| Admin                            | Minh Huy, Hồng Phúc | 24/06 – 02/08           | ✅ Hoàn thành  |
+| ├─ Quản lý người dùng            | Minh Huy, Hồng Phúc | 24/06 – 02/08           | ✅ Hoàn thành  |
+| ├─ Quản lý vị trí                | Minh Huy, Hồng Phúc | 24/06 – 02/08           | ✅ Hoàn thành  |
+| ├─ Quản lý phòng                 | Minh Huy, Hồng Phúc | 24/06 – 02/08           | ✅ Hoàn thành  |
+| └─ Quản lý booking               | Minh Huy, Hồng Phúc | 24/06 – 02/08           | ✅ Hoàn thành  |
+| NotFoundPage                     | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| Header                           | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| Footer                           | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| BackToTop button                 | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| Dark/Light Toggle                | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| Slider                           | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| Chatbot                          | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| LocaleSwitcher                   | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| Spinner                          | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| Layout                           | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| AdminLayout                      | Minh Huy, Hồng Phúc | 24/06 – 02/08           | ✅ Hoàn thành  |
+| **Bonus**                        |                     |                         |                |
+| ├─ Phân hạng chủ nhà theo rating | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| ├─ Dark/Light mode               | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| ├─ ScrollToTop                   | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| ├─ AOS animation                 | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| ├─ Đa ngôn ngữ (change language) | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+| └─ Chatbot AI (Gemini)           | Minh Huy            | 24/06 – 02/08           | ✅ Hoàn thành  |
+
+---
+
+## 🚀 Cách chạy dự án (ví dụ)
+
+```bash
+git clone https://github.com/your-username/project-name.git
+cd project-name
+npm install
+npm run dev
 ```
