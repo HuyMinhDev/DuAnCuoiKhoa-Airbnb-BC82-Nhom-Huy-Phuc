@@ -12,6 +12,7 @@ export interface User {
   gender: boolean;
   role: "USER" | "ADMIN" | string;
 }
+
 export interface PaginatedUserContent {
   data: User[];
   totalRow: number;

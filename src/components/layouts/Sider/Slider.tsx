@@ -15,6 +15,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type { MenuProps } from "antd";
 import type { RootState } from "../../../store/store";
+import { ChartArea, ChartBar } from "lucide-react";
 
 const { Content, Sider } = Layout;
 
@@ -82,6 +83,11 @@ export default function Slider({ content }: SliderProps) {
       <NavLink to="/admin/QuanLyBooking">Quản lý booking</NavLink>,
       "/admin/QuanLyBooking",
       <CalendarOutlined />
+    ),
+    getItem(
+      <NavLink to="/admin/chart">Biểu đồ </NavLink>,
+      "/admin/chart",
+      <ChartArea />
     ),
   ];
 
