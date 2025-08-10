@@ -9,6 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
   Cell,
+  LabelList, // ✅ thêm import LabelList
 } from "recharts";
 import { nguoiDungServices } from "../../services/nguoiDungServices";
 import { phongServices } from "../../services/phongServices";
@@ -73,15 +74,21 @@ const DashboardCharts: React.FC = () => {
 
         const grouped: { [key: string]: number } = {};
         users.forEach((user) => {
-          const year = user.createdAt
-            ? dayjs(user.createdAt).format("YYYY")
-            : dayjs(user.birthday).format("YYYY");
-          grouped[year] = (grouped[year] || 0) + 1;
+          const year = parseInt(
+            user.createdAt
+              ? dayjs(user.createdAt).format("YYYY")
+              : dayjs(user.birthday).format("YYYY"),
+            10
+          );
+
+          if (year >= 2000 && year <= 2025) {
+            grouped[year] = (grouped[year] || 0) + 1;
+          }
         });
 
         const formatted = Object.entries(grouped)
           .map(([year, total]) => ({ year, total }))
-          .sort((a, b) => Number(a.year) - Number(b.year));
+          .sort((a, b) => a.total - b.total);
 
         setUserChartData(formatted);
       } catch (err) {
@@ -106,10 +113,9 @@ const DashboardCharts: React.FC = () => {
           grouped[key] = (grouped[key] || 0) + 1;
         });
 
-        const formatted = Object.entries(grouped).map(([name, total]) => ({
-          name,
-          total,
-        }));
+        const formatted = Object.entries(grouped)
+          .map(([name, total]) => ({ name, total }))
+          .sort((a, b) => a.total - b.total);
 
         setRoomChartData(formatted);
       } catch (err) {
@@ -130,7 +136,8 @@ const DashboardCharts: React.FC = () => {
 
         const grouped: { [key: string]: number } = {};
         bookings.forEach((booking) => {
-          const month = dayjs(booking.ngayDen).format("MM/YYYY");
+          const month = dayjs(booking.ngayDi).format("MM/YYYY");
+
           grouped[month] = (grouped[month] || 0) + 1;
         });
 
@@ -165,10 +172,12 @@ const DashboardCharts: React.FC = () => {
           grouped[province] = (grouped[province] || 0) + 1;
         });
 
-        const formatted = Object.entries(grouped).map(([province, total]) => ({
-          district: province, // đổi label trục X
-          total,
-        }));
+        const formatted = Object.entries(grouped)
+          .map(([province, total]) => ({
+            district: province,
+            total,
+          }))
+          .sort((a, b) => a.total - b.total);
 
         setLocationChartData(formatted);
       } catch (err) {
@@ -239,6 +248,15 @@ const DashboardCharts: React.FC = () => {
             {data.map((_, index) => (
               <Cell key={index} fill={COLORS[index % COLORS.length]} />
             ))}
+            <LabelList
+              dataKey={dataKey}
+              position="top"
+              style={{
+                fontSize: 14,
+                fontWeight: "bold",
+                fill: "#111",
+              }}
+            />
           </Bar>
         </BarChart>
       </ResponsiveContainer>
@@ -247,8 +265,66 @@ const DashboardCharts: React.FC = () => {
 
   return (
     <div style={{ width: "100%", padding: "20px", background: "#f9fafb" }}>
+      <div style={{ display: "flex", gap: "20px", marginBottom: "30px" }}>
+        <div
+          style={{
+            flex: 1,
+            background: "#111827",
+            color: "#fff",
+            borderRadius: "12px",
+            padding: "20px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <span style={{ fontSize: "14px", opacity: 0.8 }}>Người dùng</span>
+          <span style={{ fontSize: "32px", fontWeight: "bold" }}>
+            {totalAllUsers}
+          </span>
+        </div>
+
+        <div
+          style={{
+            flex: 1,
+            background: "#10b981",
+            color: "#fff",
+            borderRadius: "12px",
+            padding: "20px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <span style={{ fontSize: "14px", opacity: 0.8 }}>Booking </span>
+          <span style={{ fontSize: "32px", fontWeight: "bold" }}>
+            {totalAllBookings}
+          </span>
+        </div>
+
+        <div
+          style={{
+            flex: 1,
+            background: "#8b5cf6",
+            color: "#fff",
+            borderRadius: "12px",
+            padding: "20px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <span style={{ fontSize: "14px", opacity: 0.8 }}>
+            Tổng phòng có trên các tỉnh thành
+          </span>
+          <span style={{ fontSize: "32px", fontWeight: "bold" }}>
+            {totalAllLocations}
+          </span>
+        </div>
+      </div>
+
       {renderBarChart(
-        "Biểu đồ User theo năm",
+        "Biểu đồ User dựa theo năm sinh",
         "Tổng số user",
         totalAllUsers,
         userChartData,
@@ -265,7 +341,7 @@ const DashboardCharts: React.FC = () => {
         "name"
       )}
       {renderBarChart(
-        "Biểu đồ đặt phòng theo tháng",
+        "Biểu đồ đặt phòng dựa trên tháng đi",
         "Tổng số đặt phòng",
         totalAllBookings,
         bookingChartData,
@@ -273,7 +349,7 @@ const DashboardCharts: React.FC = () => {
         "month"
       )}
       {renderBarChart(
-        "Biểu đồ vị trí theo tỉnh/thành phố",
+        "Biểu đồ vị trí số phòng theo tỉnh/thành phố",
         "Tổng số vị trí",
         totalAllLocations,
         locationChartData,
