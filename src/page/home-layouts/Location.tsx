@@ -12,26 +12,22 @@ export default function Locations() {
     {
       id: 1,
       title: t("homepage.Locations.description1"),
-      image:
-        "https://rawn-airbnb.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Frawn%2Fimage%2Fupload%2Ff_webp%2Fq_auto%3Abest%2Fv1628329222%2Fmjwqhra4wbzlvoo2pe27.jpg&w=1920&q=75",
+      image: "/images/Footer/fullHouseNew.png",
+    },
+    {
+      id: 2,
+      title: t("homepage.Locations.description2"),
+      image: "/images/Footer/houseSpecial.png",
     },
     {
       id: 3,
-      title: t("homepage.Locations.description2"),
-      image:
-        "https://rawn-airbnb.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Frawn%2Fimage%2Fupload%2Ff_webp%2Fq_auto%3Abest%2Fv1628329186%2Ffmoml05qcd0yk2stvl9r.jpg&w=1920&q=75",
-    },
-    {
-      id: 7,
       title: t("homepage.Locations.description3"),
-      image:
-        "https://rawn-airbnb.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Frawn%2Fimage%2Fupload%2Ff_webp%2Fq_auto%3Abest%2Fv1628329121%2Fguagj5r2bkccgr1paez3.jpg&w=1920&q=75",
+      image: "/images/Footer/housefarm.png",
     },
     {
-      id: 6,
+      id: 4,
       title: t("homepage.Locations.description4"),
-      image:
-        "https://rawn-airbnb.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Frawn%2Fimage%2Fupload%2Ff_webp%2Fq_auto%3Abest%2Fv1628329252%2Fgqhtg9ua6jdrffhbrfv1.jpg&w=1920&q=75",
+      image: "/images/Footer/housePet.png",
     },
   ];
 
