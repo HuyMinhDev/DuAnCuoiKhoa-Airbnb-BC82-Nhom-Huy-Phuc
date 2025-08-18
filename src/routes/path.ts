@@ -10,5 +10,6 @@ export const PATH = {
   ADMIN_MANAGEMENT_ROOM: "/admin/QuanLyPhong",
   ADMIN_MANAGEMENT_BOOKING: "/admin/QuanLyBooking",
   ADMIN_MANAGEMENT_LOCAL: "/admin/QuanLyViTri",
+  ADMIN_MANAGEMENT_CHART: "/admin/chart",
   NOT_FOUND: "*",
 };

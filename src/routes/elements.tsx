@@ -14,6 +14,7 @@ import QuanLyNguoiDungPage from "../page/QuanLyNguoiDungPage/QuanLyNguoiDungPage
 import QuanLyViTriPage from "../page/QuanLyViTriPage/QuanLyViTriPage";
 import QuanLyPhongPage from "../page/QuanLyPhongPage/QuanLyPhongPage";
 import QuanLyBookingPage from "../page/QuanLyBookingPage/QuanLyBookingPage";
+import QuanLyChart from "../page/Chart/QuanLyChart";
 
 export default function useRouterElements() {
   const elements = useRoutes([
@@ -32,6 +33,10 @@ export default function useRouterElements() {
     {
       path: PATH.ADMIN_MANAGEMENT_BOOKING,
       element: <AdminLayout content={<QuanLyBookingPage />} />,
+    },
+    {
+      path: PATH.ADMIN_MANAGEMENT_CHART,
+      element: <AdminLayout content={<QuanLyChart />} />,
     },
     {
       path: PATH.HOME,
