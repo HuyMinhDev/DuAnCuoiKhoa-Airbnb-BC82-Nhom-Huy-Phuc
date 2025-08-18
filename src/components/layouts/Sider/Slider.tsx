@@ -15,7 +15,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type { MenuProps } from "antd";
 import type { RootState } from "../../../store/store";
-import { ChartArea, ChartBar } from "lucide-react";
+import { ChartArea } from "lucide-react";
 
 const { Content, Sider } = Layout;
 
@@ -131,7 +131,7 @@ export default function Slider({ content }: SliderProps) {
                 <img
                   src={user.user.avatar}
                   alt=""
-                  className="w-12 h-12 rounded-full"
+                  className="w-12 h-12 rounded-full object-cover"
                 />
               ) : (
                 <i className="fas fa-user text-xl"></i>

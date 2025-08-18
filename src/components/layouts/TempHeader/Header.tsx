@@ -224,7 +224,7 @@ const TempHeader: React.FC = () => {
                   <img
                     src={user.user.avatar}
                     alt=""
-                    className="w-12 h-12 rounded-full"
+                    className="w-12 h-12 rounded-full object-cover"
                   />
                 ) : (
                   <i className="fas fa-user text-xl"></i>
