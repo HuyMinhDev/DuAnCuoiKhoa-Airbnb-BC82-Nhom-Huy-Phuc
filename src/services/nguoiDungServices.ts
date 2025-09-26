@@ -11,6 +11,8 @@ import fetcher from "../api/fetcher";
 
 export const nguoiDungServices = {
   getListUser: (): Promise<AxiosResponse<User[]>> => fetcher.get("/users"),
+  getListUserAdmin: (): Promise<AxiosResponse<{ content: User[] }>> =>
+    fetcher.get("/users"),
   getListUserGoole: (): Promise<AxiosResponse<{ content: User[] }>> =>
     fetcher.get("/users"),
 

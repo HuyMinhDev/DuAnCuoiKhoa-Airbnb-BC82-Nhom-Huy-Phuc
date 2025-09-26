@@ -71,12 +71,25 @@ const SelectForm: React.FC<SelectFormProps> = ({
       .catch((err) => console.error("Lỗi khi gọi API:", err));
   }, []);
 
+  // const handleDateChange = (ranges: RangeKeyDict) => {
+  //   const selectedRange = ranges["selection"];
+  //   if (selectedRange.startDate && selectedRange.endDate) {
+  //     setDateRange([selectedRange]);
+  //     dispatch(setNgayDen(new Date().toISOString()));
+  //     dispatch(setNgayDi(addDays(new Date(), 7).toISOString()));
+  //     const days = Math.round(
+  //       (selectedRange.endDate.getTime() - selectedRange.startDate.getTime()) /
+  //         (1000 * 3600 * 24)
+  //     );
+  //     dispatch(setTotalDay(days));
+  //   }
+  // };
   const handleDateChange = (ranges: RangeKeyDict) => {
     const selectedRange = ranges["selection"];
     if (selectedRange.startDate && selectedRange.endDate) {
       setDateRange([selectedRange]);
-      dispatch(setNgayDen(new Date().toISOString()));
-      dispatch(setNgayDi(addDays(new Date(), 7).toISOString()));
+      dispatch(setNgayDen(selectedRange.startDate.toISOString()));
+      dispatch(setNgayDi(selectedRange.endDate.toISOString()));
       const days = Math.round(
         (selectedRange.endDate.getTime() - selectedRange.startDate.getTime()) /
           (1000 * 3600 * 24)

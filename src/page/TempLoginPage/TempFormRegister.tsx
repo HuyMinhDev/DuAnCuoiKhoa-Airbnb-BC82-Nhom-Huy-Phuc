@@ -41,9 +41,10 @@ export default function TempFormRegister({
       form.resetFields();
       dispatch(setModalContent("login"));
       if (onRegisterSuccess) onRegisterSuccess();
-    } catch (error) {
+    } catch (error: any) {
       console.log("Đăng ký lỗi: ", error);
       message.error(t("message.error.regester"));
+      message.error(error?.response?.data.content);
     }
   };
 

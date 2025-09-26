@@ -146,21 +146,41 @@ export default function Chatbot() {
       // If a direct answer cannot be found in the matching rows, use general information from the provided Excel data to generate a helpful response.
       // Only reply with "No relevant data found in the spreadsheet." if there is absolutely no related information in the entire dataset.
       // Do not mention access or the Excel spreadsheet in your response.`;
+      // const promptToSend = `Bạn là một trợ lý AI trả lời các câu hỏi của người dùng dựa trên dữ liệu từ bảng tính Excel dưới đây.
+      // ${context}
+
+      // Vui lòng cung cấp câu trả lời phù hợp nhất cho câu hỏi: "${userMessage}".
+      // Nếu không tìm thấy câu trả lời trực tiếp trong các hàng phù hợp, hãy sử dụng thông tin chung từ dữ liệu Excel được cung cấp để đưa ra phản hồi hữu ích.
+      // Chỉ trả lời "Không tìm thấy dữ liệu liên quan trong bảng tính." nếu hoàn toàn không có thông tin liên quan trong toàn bộ tập dữ liệu.
+      // Không được đề cập đến quyền truy cập hoặc bảng tính Excel trong câu trả lời.`;
       const promptToSend = `Bạn là một trợ lý AI trả lời các câu hỏi của người dùng dựa trên dữ liệu từ bảng tính Excel dưới đây.
       ${context}
 
       Vui lòng cung cấp câu trả lời phù hợp nhất cho câu hỏi: "${userMessage}".
       Nếu không tìm thấy câu trả lời trực tiếp trong các hàng phù hợp, hãy sử dụng thông tin chung từ dữ liệu Excel được cung cấp để đưa ra phản hồi hữu ích.
-      Chỉ trả lời "Không tìm thấy dữ liệu liên quan trong bảng tính." nếu hoàn toàn không có thông tin liên quan trong toàn bộ tập dữ liệu.
+      Nếu hoàn toàn không có dữ liệu liên quan trong toàn bộ tập dữ liệu, thay vì trả lời "Không tìm thấy dữ liệu liên quan trong bảng tính.", hãy hỏi lại khách hàng: "Xin vui lòng cung cấp thêm chi tiết (ví dụ: tên hoặc từ khóa liên quan) để tôi có thể hỗ trợ chính xác hơn.".
       Không được đề cập đến quyền truy cập hoặc bảng tính Excel trong câu trả lời.`;
 
+      // const response = await fetch(
+      //   `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`,
+      //   {
+      //     method: "POST",
+      //     headers: { "Content-Type": "application/json" },
+      //     body: JSON.stringify({
+      //       contents: [{ parts: [{ text: promptToSend }] }],
+      //     }),
+      //   }
+      // );
+
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`,
+        // Thay thế gemini-1.5-flash-latest bằng gemini-2.5-flash
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             contents: [{ parts: [{ text: promptToSend }] }],
+            // Thêm model configuration nếu cần
           }),
         }
       );

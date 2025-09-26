@@ -68,18 +68,14 @@ const DashboardCharts: React.FC = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await nguoiDungServices.getListUser();
+        const res = await nguoiDungServices.getListUserAdmin();
+        console.log("res: ", res);
         const users = res.data.content || [];
         setTotalAllUsers(users.length);
 
         const grouped: { [key: string]: number } = {};
         users.forEach((user) => {
-          const year = parseInt(
-            user.createdAt
-              ? dayjs(user.createdAt).format("YYYY")
-              : dayjs(user.birthday).format("YYYY"),
-            10
-          );
+          const year = parseInt(dayjs(user.birthday).format("YYYY"), 10);
 
           if (year >= 2000 && year <= 2025) {
             grouped[year] = (grouped[year] || 0) + 1;
